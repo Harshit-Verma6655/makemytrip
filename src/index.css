@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.city::-webkit-scrollbar{
+    display: none;
+}
