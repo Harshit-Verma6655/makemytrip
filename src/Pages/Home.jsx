@@ -2,12 +2,13 @@ import React from 'react'
 import Header from '../components/Header';
 import Nav from '../components/Nav';
 import Flight from '../components/Flight';
+import url from '../../assets/bg2.jpg';
 function Home() {
     return (
         <div className="w-screeen">
             <div
                 style={{
-                    backgroundImage: "url('../../assets/bg2.jpg')",
+                    backgroundImage: `url(${url})`,
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                     height: "550px",
