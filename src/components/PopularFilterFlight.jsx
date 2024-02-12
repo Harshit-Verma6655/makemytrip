@@ -54,11 +54,11 @@ function PopularFilterFlight() {
             );
 
         }
-        setfilter((prev) => {
-            let filter1 = { ...prev, ticketPrice: { ...prev?.ticketPrice, "$gte": 0, "$lte": maxPrice } };
-            SearchFlights(filter1);
-            return filter1;
-        });
+        // setfilter((prev) => {
+        //     let filter1 = { ...prev, ticketPrice: { ...prev?.ticketPrice, "$gte": 0, "$lte": maxPrice } };
+        //     SearchFlights(filter1);
+        //     return filter1;
+        // });
 
     };
 
@@ -115,13 +115,18 @@ function PopularFilterFlight() {
                         <div>
                             <div className='my-[20px]'>
                                 <input type='range' className='w-full'
-                                    min="0" step="1"
+                                    min="0" step="5" max="55"
                                     onChange={(e) => {
                                         let base = 2000;
-                                        let fact = 100 * e.target.value;
+                                        let fact = 20 * e.target.value;
                                         let price = base + fact;
                                         console.log(price);
                                         setmaxPrice(price);
+                                        setfilter((prev) => {
+                                            let filter1 = { ...prev, ticketPrice: { ...prev?.ticketPrice, "$gte": 0, "$lte": price } };
+                                            SearchFlights(filter1);
+                                            return filter1;
+                                        });
                                     }}
                                 />
                             </div>

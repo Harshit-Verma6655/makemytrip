@@ -2,7 +2,16 @@
 import React from 'react'
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
-
+import flight from "../../assets/triplogos/flight-1.png";
+import home from "../../assets/triplogos/villa-1.png";
+import holiday from "../../assets/triplogos/umbrella1.png";
+import train from "../../assets/triplogos/train-1.png";
+import buses from "../../assets/triplogos/bus-1.png";
+import cabs from "../../assets/triplogos/car1.png";
+import forex from "../../assets/triplogos/forexcard-1.png";
+import travel from "../../assets/triplogos/travelinsu-1.png";
+import login from '../../assets/mylogo.png';
+import country from '../../assets/countryindia.png';
 function CommonNavbar() {
     return (<div className='flex justify-center w-screen'>
         <div className='w-[1200px] mx-[32px] py-[10px] h-[80px] flex items-center bg-[#fff] '>
@@ -12,7 +21,7 @@ function CommonNavbar() {
                 <div className="w-full flex justify-center   z-10 ">
                     <div className="    px-6 pt-3 rounded-lg flex gap-6 text-sm ">
                         <div >
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/flight-1.png" />
+                            <img width={"25px"} height={"20px"} src={flight} />
                             <Link to={"/"} className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Flights
                             </Link>
@@ -24,43 +33,43 @@ function CommonNavbar() {
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/villa-1.png" />
+                            <img width={"25px"} height={"20px"} src={home} />
                             <span className=" inline-block text-[#4a4a4a] text-[12px]">
                                 Homestays<br /> & villas
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/umbrella1.png" />
+                            <img width={"25px"} height={"20px"} src={holiday} />
                             <span className=" inline-block text-[#4a4a4a] text-[12px]">
                                 Holiday <br />packages
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/train-1.png" />
+                            <img width={"25px"} height={"20px"} src={train} />
                             <span className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Trains
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/bus-1.png" />
+                            <img width={"25px"} height={"20px"} src={buses} />
                             <span className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Buses
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/car1.png" />
+                            <img width={"25px"} height={"20px"} src={cabs} />
                             <span className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Cabs
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/forexcard-1.png" />
+                            <img width={"25px"} height={"20px"} src={forex} />
                             <span className=" inline-block text-[#4a4a4a] text-[12px]">
                                 Forex Card<br /> & Currency
                             </span>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/travelinsu-1.png" />
+                            <img width={"25px"} height={"20px"} src={travel} />
                             <span className="mt-1 inline-block text-[#4a4a4a] text-[12px]">
                                 Travel Insurance
                             </span>
@@ -69,11 +78,11 @@ function CommonNavbar() {
                 </div>
             </div>
             <div className='flex gap-2 mr-2'>
-                <img width={"30px"} src='../../assets/mylogo.png' />
+                <img width={"30px"} src={login} />
                 <span className='text-xs font-bold'>Login or <br />Create Account</span>
             </div>
             <div className='mr-3'>
-                <img width={"70px"} src='../../assets/countryindia.png' />
+                <img width={"70px"} src={country} />
             </div>
             <div className='flex'>
                 <span className='text-[10px]'>Language <br /><span className='text-xs'>ENG</span> </span>
