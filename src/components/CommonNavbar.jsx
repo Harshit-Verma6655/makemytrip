@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React from 'react'
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 function CommonNavbar() {
     return (<div className='flex justify-center w-screen'>
@@ -12,9 +13,9 @@ function CommonNavbar() {
                     <div className="    px-6 pt-3 rounded-lg flex gap-6 text-sm ">
                         <div >
                             <img width={"25px"} height={"20px"} src="../../assets/triplogos/flight-1.png" />
-                            <span className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
+                            <Link to={"/"} className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Flights
-                            </span>
+                            </Link>
                         </div>
                         <div>
                             <img width={"25px"} height={"20px"} src="../../assets/triplogos/hotel-1.png" />

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Nav() {
   return (
@@ -6,9 +7,9 @@ function Nav() {
       <div className="w-[928px] h-[110px]  bg-white px-6 pt-3 rounded-lg flex gap-12 text-sm shadow-lg">
         <div>
           <img width={"62px"} src="../../assets/triplogos/flight-1.png" />
-          <span className="mt-2 inline-block text-[#4a4a4a] text-[14px]">
+          <NavLink className="mt-2 inline-block text-[#4a4a4a] text-[14px]">
             Flights
-          </span>
+          </NavLink>
         </div>
         <div>
           <img width={"52px"} src="../../assets/triplogos/hotel-1.png" />
