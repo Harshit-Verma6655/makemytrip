@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-empty */
 import React, { useEffect, useState } from 'react'
 import { useFlightContext } from '../FlightContext/FlightContext';
@@ -6,7 +7,10 @@ function PopularFilterFlight() {
     let [nonStop, setnonStop] = useState(false);
     let [oneStop, setoneStop] = useState(false);
     let [maxPrice, setmaxPrice] = useState();
+    let [departureTime, setdepartureTime] = useState();
+    let [arrivalTime, setarrivalTime] = useState();
     let [filter, setfilter] = useState();
+
     let [departureActive, setdepartureActive] = useState();
     const { SearchFlights } = useFlightContext();
 
@@ -14,7 +18,7 @@ function PopularFilterFlight() {
         handleOnestop();
         // handlleRange();
 
-    }, [nonStop, oneStop, maxPrice]);
+    }, [nonStop, oneStop, maxPrice, departureTime]);
 
     const handleOnestop = () => {
         if (nonStop && oneStop) {
@@ -54,19 +58,11 @@ function PopularFilterFlight() {
             );
 
         }
-        // setfilter((prev) => {
-        //     let filter1 = { ...prev, ticketPrice: { ...prev?.ticketPrice, "$gte": 0, "$lte": maxPrice } };
-        //     SearchFlights(filter1);
-        //     return filter1;
-        // });
+
 
     };
 
-    // const handlleRange = () => {
-    //     // console.log(e.target.value);
 
-
-    // }
 
 
     return (
@@ -75,38 +71,88 @@ function PopularFilterFlight() {
                 <p className='mb-[15px] text-[18px] font-bold'>Popular Filters</p>
                 <div className='w-[265px] h-[173px] mb-6'>
                     <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
-                        <label className='flex'>
-                            <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
+                        <label className='flex' >
+                            <span><input type='checkbox' name='nonstop' className='w-[18px] h-[18px]'
+                                onChange={(e) => {
+                                    setnonStop(e.target.checked);
+
+                                }}
+                            ></input></span>
                             <div className='ml-[10px]'><p>Non Stop</p></div>
                         </label>
                         <span className='ml-[5px]'>₹ 4,869</span>
                     </div>
                     <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
                         <label className='flex'>
-                            <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px]'><p>Non Stop</p></div>
+                            <span><input type='checkbox'
+                                onChange={(e) => setoneStop(e.target.checked)}
+                                className='w-[18px] h-[18px]'></input></span>
+                            <div className='ml-[10px]'><p>1 Stop</p></div>
                         </label>
                         <span className='ml-[5px]'>₹ 4,869</span>
                     </div>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
+                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'
+                        onClick={() => {
+
+                            setfilter((prev) => {
+                                let filter1 = {
+                                    ...prev, duration
+                                        : { "$lte": 3 }
+                                };
+                                SearchFlights(filter1);
+                                return filter1;
+                            })
+
+
+                        }}
+
+                    >
                         <label className='flex'>
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px]'><p>Non Stop</p></div>
+                            <div className='ml-[10px]'><p>Duration</p></div>
                         </label>
-                        <span className='ml-[5px]'>₹ 4,869</span>
+                        <span className='ml-[5px]'>  In 3hrs </span>
                     </div>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
+                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'
+                        onClick={() => {
+                            setdepartureActive("noon")
+                            setfilter((prev) => {
+                                setdepartureTime("18:00");
+                                let filter1 = {
+                                    ...prev, departureTime
+                                        : { "$gte": "12:00", "$lte": "18:00" }
+                                };
+                                SearchFlights(filter1);
+                                return filter1;
+                            })
+
+                        }
+                        }
+
+                    >
                         <label className='flex'>
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px] '><p className='flex items-center '>
-                                <span className='mr-2'><img height={"12px"} width={"12px"} src='https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=18' /></span>
-                                Air India</p></div>
+                            <div className='ml-[10px] '><p> Morning</p></div>
                         </label>
-                        <span className='ml-[5px]'>₹ 4,869</span>
+                        <span className='ml-[5px] text-xs '>6AM- 12PM</span>
                     </div>
-                    <p className='mb-15px'>
-                        <span className='text-blue-400 text-sm'>+ 5 more</span>
-                    </p>
+
+
+                    <button className='mb-15px'
+                        onClick={() => {
+                            setdepartureActive(null);
+                            setfilter((prev) => {
+                                let filter1 = {};
+                                SearchFlights(filter1);
+
+                                return filter1;
+                            })
+                        }}
+
+
+                    >
+                        <span className='text-blue-400 text-sm'>Clear All Filter</span>
+                    </button>
 
                 </div>
                 <div className='py-[12px] px-[15px] mb-8'>
@@ -165,11 +211,25 @@ function PopularFilterFlight() {
                         <span className='ml-[5px]'>₹ 4,869</span>
                     </div>
                 </div>
-                <div className='mb-8'>
+                <div className='mb-8' >
+
                     <p className='mb-[15px] font-bold'>Departure From Mumbai</p>
                     <div className='flex flex-wrap justify-between'>
                         <div className={`mr-[10px] mb-[12px] border p-[5px] rounded-lg flex flex-col items-center cursor-pointer ${departureActive == "night" ? "bg-[#068eff] text-white" : ""}`}
-                            onClick={() => setdepartureActive("night")}
+                            onClick={() => {
+                                setdepartureActive("night");
+                                setdepartureTime("06:00");
+                                setfilter((prev) => {
+                                    let filter1 = {
+                                        ...prev, departureTime
+                                            : { "$gte": "00:00", "$lte": "06:00" }
+                                    };
+                                    SearchFlights(filter1);
+                                    return filter1;
+                                })
+
+
+                            }}
                         >
                             <span><img width={"34px"} height={"34px"} src={`https://imgak.mmtcdn.com/flights/assets/media/dt/listing/left-filters/morning_${departureActive == "night" ? "" : "in"}active.png?v=1`} /></span>
                             <div className='text-[7px] font-bold text-center'>
@@ -177,7 +237,19 @@ function PopularFilterFlight() {
                             </div>
                         </div>
                         <div className='flex'>
-                            <div onClick={() => setdepartureActive("morning")} className={`mr-[10px] mb-[12px] border p-[6px] rounded-lg flex flex-col items-center cursor-pointer ${departureActive == "morning" ? "bg-[#068eff] text-white" : ""}`}>
+                            <div onClick={() => {
+                                setdepartureActive("morning")
+                                setfilter((prev) => {
+                                    let filter1 = {
+                                        ...prev, departureTime
+                                            : { "$gte": "06:00", "$lte": "12:00" }
+                                    };
+                                    SearchFlights(filter1);
+                                    return filter1;
+                                })
+
+                            }
+                            } className={`mr-[10px] mb-[12px] border p-[6px] rounded-lg flex flex-col items-center cursor-pointer ${departureActive == "morning" ? "bg-[#068eff] text-white" : ""}`}>
                                 <span><img width={"34px"} height={"34px"} src={`https://imgak.mmtcdn.com/flights/assets/media/dt/listing/left-filters/noon_${departureActive == "morning" ? "" : "in"}active.png?v=1`} /></span>
                                 <div className='text-[7px] font-bold text-center'>
                                     6 AM - 12 PM
@@ -186,7 +258,20 @@ function PopularFilterFlight() {
 
 
                         </div>
-                        <div className='flex cursor-pointer' onClick={() => setdepartureActive("noon")}>
+                        <div className='flex cursor-pointer' onClick={() => {
+                            setdepartureActive("noon")
+                            setfilter((prev) => {
+                                setdepartureTime("18:00");
+                                let filter1 = {
+                                    ...prev, departureTime
+                                        : { "$gte": "12:00", "$lte": "18:00" }
+                                };
+                                SearchFlights(filter1);
+                                return filter1;
+                            })
+
+                        }
+                        }>
                             <div className={`mr-[10px] mb-[12px] border p-[6px] rounded-lg flex flex-col items-center ${departureActive == "noon" ? "bg-[#068eff] text-white" : ""}`}>
                                 <span><img width={"34px"} height={"34px"} src={`	https://imgak.mmtcdn.com/flights/assets/media/dt/listing/left-filters/evening_${departureActive == "noon" ? "" : "in"}active.png?v=1`} /></span>
                                 <div className='text-[7px] font-bold text-center'>
@@ -196,9 +281,26 @@ function PopularFilterFlight() {
 
 
                         </div>
-                        <div className='flex cursor-pointer'>
-                            <div className='mr-[10px] mb-[12px] border py-[5px] px-[9px] rounded-lg flex flex-col items-center'>
-                                <span><img width={"34px"} height={"34px"} src='https://imgak.mmtcdn.com/flights/assets/media/dt/listing/left-filters/night_inactive.png?v=1' /></span>
+                        <div className='flex cursor-pointer'
+                            onClick={() => {
+                                setdepartureActive("even")
+                                setdepartureTime("00:00");
+                                setfilter((prev) => {
+                                    let filter1 = {
+                                        ...prev, departureTime
+                                            : { "$gte": "18:00", "$lte": "00:00" }
+                                    };
+                                    SearchFlights(filter1);
+                                    return filter1;
+                                })
+
+                            }
+                            }
+
+
+                        >
+                            <div className={`mr-[10px] mb-[12px] border py-[5px] px-[9px] rounded-lg flex flex-col items-center ${departureActive == "even" ? "bg-[#068eff] text-white" : ""}`}>
+                                <span><img width={"34px"} height={"34px"} src={`https://imgak.mmtcdn.com/flights/assets/media/dt/listing/left-filters/night_${departureActive == "even" ? "" : "in"}active.png?v=1`} /></span>
                                 <div className='text-[7px] font-bold text-center'>
                                     After 6 pM
                                 </div>
@@ -208,7 +310,18 @@ function PopularFilterFlight() {
                         </div>
 
                     </div>
+                    {departureActive && <button className='text-blue-700 text-xs font-bold' onClick={() => {
 
+                        setdepartureActive(null);
+                        setfilter((prev) => {
+                            let filter1 = {
+                                ...prev, departureTime
+                                    : { "$gte": "00:00" }
+                            };
+                            SearchFlights(filter1);
+                            return filter1;
+                        })
+                    }}>Clear Filter</button>}
                 </div>
 
 
