@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import { airportSearch, flightsAvailable } from "../APIs/flightSearch";
+import planeLogo from "../../assets/plane-small.png";
 import { useNavigate } from "react-router-dom";
 import { useFlightContext } from "../FlightContext/FlightContext";
 function Flightinner() {
@@ -174,7 +175,7 @@ function Flightinner() {
                       >
                         <div className="flex gap-1">
                           <div>
-                            <img src="../../assets/plane-small.png" width={25} style={{ minHeight: "20px" }} /></div>
+                            <img src={planeLogo} width={25} style={{ minHeight: "20px" }} /></div>
                           <span className="flex flex-col">
                             <span className="text-sm text-gray-800">
                               {airport.city}, {airport.country}
