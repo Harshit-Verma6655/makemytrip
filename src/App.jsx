@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import FlightHeader from "./components/FlightHeader";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
