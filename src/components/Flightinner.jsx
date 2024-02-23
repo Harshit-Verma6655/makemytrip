@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import { airportSearch, flightsAvailable } from "../APIs/flightSearch";
-import planeLogo from "../../assets/plane-small.png";
+import planeLogo from '../../assets/plane-small.png';
 import { useNavigate } from "react-router-dom";
 import { useFlightContext } from "../FlightContext/FlightContext";
 function Flightinner() {
