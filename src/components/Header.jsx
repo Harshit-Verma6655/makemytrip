@@ -1,27 +1,29 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 function Header() {
   return (
     <div
-      className="w-screen  h-16 mb-6"
+      className="w-full z-10 h-16 mb-6"
       style={{
         background: "transparent",
       }}
     >
       <div className="">
-        <div className="flex justify-around p-3">
-          <Link>
+        <div className="flex sm:justify-around justify-between p-3">
+
+          <Link className="flex gap-2">
+            <HiOutlineMenuAlt2 className="text-white text-3xl sm:hidden visible font-bold" />
             <img
               style={{ width: "113px", height: "36px" }}
               src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
             />
           </Link>
-          <div className="flex ">
+          <div className="sm:flex hidden ">
             <div className="flex gap-2 p-2">
               <svg
-                class="w-[31px] h-[31px] text-white bg-transparent"
+                class="w-[31px] h-[31px] text-white bg-transparent offer"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -120,6 +122,44 @@ function Header() {
               className="text-white p-3 text-xs ml-2 rounded flex gap-2"
             >
               <span>IN | ENG | INR</span>
+              <svg
+                class="w-[15px] h-[15px] text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            style={{
+              background:
+                "linear-gradient(93deg, #53b2fe, #065af3)",
+              width: "153px",
+              height: "42px",
+              color: "white",
+              fontSize: "10px",
+              fontWeight: "500",
+              alignItems: "center",
+            }}
+            className="p-2 rounded flex sm:hidden "
+          >
+            <div className="flex gap-2 sm:hidden ">
+              <img
+                style={{ width: "20px", height: "20px", borderRadius: "50%" }}
+                src="../../assets/Screenshot 2024-01-29 171454.png"
+              />
+              <span>Login or Create Account</span>
+            </div>
+            <div>
               <svg
                 class="w-[15px] h-[15px] text-white"
                 aria-hidden="true"

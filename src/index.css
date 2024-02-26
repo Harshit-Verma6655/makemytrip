@@ -9,3 +9,18 @@
 .city::-webkit-scrollbar{
     display: none;
 }
+
+.scroll-hide::-webkit-scrollbar{
+    display: none;
+}
+.offer{
+    animation: off 2s linear  infinite;
+}
+@keyframes off {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

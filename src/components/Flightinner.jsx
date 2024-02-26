@@ -60,9 +60,9 @@ function Flightinner() {
   }
 
   return (
-    <div className="" onClick={() => { setdestCity(); setsrcCity(); }}>
-      <div className="flex justify-between">
-        <div className="flex gap-7 ml-2">
+    <div className=" scroll-hide relative" onClick={() => { setdestCity(); setsrcCity(); }}>
+      <div className="flex justify-between scroll-hide">
+        <div className="flex gap-7 ml-2 scroll-hide">
           <label htmlFor="One" className="hover:bg-blue-50 px-2 py-1 rounded-full cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="One" />
             <span className="font-bold">One way</span>
@@ -76,13 +76,13 @@ function Flightinner() {
             <span className="font-bold">Multi city</span>
           </label>
         </div>
-        <span className="text-gray-600">
+        <span className="text-gray-600 sm:visible invisible">
           Book International and Domestic Flights
         </span>
       </div>
       <div className="py-[11px] mb-[8px]">
-        <div className="h-[119px] border-gray-300 border rounded-lg flex  ">
-          <div className="w-[300px] h-full     border-gray-300 border-r relative">
+        <div className="sm:h-fit border-gray-300 border rounded-lg flex flex-col sm:flex-row sm:gap-0 gap-2 ">
+          <div className="sm:w-[300px] sm:h-[130px] h-full w-full    border-gray-300  sm:border-r relative">
             <div className="px-[25px] py-[10px] justify-ceter flex flex-col">
               <label className="mb-1 w-full text-gray-600">From</label>
               <input
@@ -94,7 +94,7 @@ function Flightinner() {
               />
               <p className="text-xs text-gray-500 text-left">{srcInput?.name}</p>
               {srcCity && (
-                <ul className="bg-white border p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px]">
+                <ul className="bg-white border absolute top-20 p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px]">
                   {srcCity?.map((airport) => {
                     return (
                       <li
@@ -127,7 +127,7 @@ function Flightinner() {
               )}
             </div>
             <span
-              className="w-[40px] h-[40px] bg-[#fff] shadow-lg rounded-full z-10 absolute
+              className="w-[40px] h-[40px] bg-[#fff] rotate-90 sm:rotate-180 shadow-lg rounded-full z-10 absolute
             -right-[20px] top-[35px] flex justify-center items-center cursor-pointer
             "
               onClick={handleExchange}
@@ -150,7 +150,7 @@ function Flightinner() {
             </span>
           </div>
 
-          <div className="w-[300px] h-full   border-gray-300 border-r relative">
+          <div className="sm:w-[300px] h-full w-full border border-gray-300 sm:border-none sm:border-r relative">
             <div className="px-[25px] py-[10px]  flex flex-col">
               <label className="mb-1 w-full text-gray-600">To</label>
               <input
@@ -162,7 +162,7 @@ function Flightinner() {
               />
               <p className="text-xs text-gray-500 text-left">{destInput?.name}</p>
               {destCity && (
-                <ul className="bg-white border p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px]">
+                <ul className="bg-white border p-2 pt-4 absolute top-20 overflow-scroll city rounded max-h-[220px] w-[270px]">
                   {destCity?.map((airport) => {
                     return (
                       <li
@@ -196,9 +196,9 @@ function Flightinner() {
             </div>
 
           </div>
-          <div className="w-[158px] border-gray-300 border-r p-[2px]">
+          <div className="sm:w-[158px] w-full border border-gray-300 sm:border-r p-[2px]">
             <label htmlFor="departure" className="">
-              <span className="flex pl-[15px] items-center gap-3">
+              <span className="sm:flex pl-[15px] hidden items-center gap-3">
                 <span className="text-gray-600">Return</span>
                 <svg
                   className="w-[15px] h-[15px] text-blue-600"
@@ -219,12 +219,12 @@ function Flightinner() {
               <input
                 id="departure"
                 type="date"
-                className="mt-5 font-bold text-[16px] pl-[15px]"
+                className="sm:mt-5 font-bold text-[16px] pl-[15px] h-[70px] sm:h-auto"
                 onChange={handleDay}
               />
             </label>
           </div>
-          <div className="w-[158px] border-gray-300 border-r p-[2px]">
+          <div className="sm:w-[158px] w-full border border-gray-300 sm:border-r p-[2px]">
             <label htmlFor="return" className="">
               <span className="flex pl-[15px] mb-2 items-center gap-3">
                 <span className="text-gray-600">Return</span>
@@ -245,7 +245,7 @@ function Flightinner() {
                 </svg>
               </span>
 
-              <input id="return" type="date" className="w-full h-full hidden" />
+
               <label htmlFor="return">
                 <p className="pl-[15px] text-gray-400 font-bold text-sm">
                   Tap to add a return date for bigger discounts
@@ -253,7 +253,7 @@ function Flightinner() {
               </label>
             </label>
           </div>
-          <div className="w-[158px] p-[2px]">
+          <div className="sm:w-[158px] w-full p-[2px]">
             <label htmlFor="return" className="relative h-full w-full">
               <span className="flex pl-[15px]  items-center gap-1">
                 <span className="text-sm text-gray-600">
@@ -285,12 +285,12 @@ function Flightinner() {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mb-4">
-        <div className="flex items-center ">
-          <p className="text-[14px] leading-none font-[600] text-gray-600 mr-1">
+      <div className="flex justify-between mb-4 overflow-scroll scroll-hide">
+        <div className="flex sm:items-center flex-col sm:flex-row overflow-scroll scroll-hide">
+          <p className="text-[14px] mb-2  leading-none font-[600] text-gray-400 mr-1 ">
             Select A <br /> Fare type:
           </p>
-          <ul className="  flex">
+          <ul className="  flex overflow-x-scroll scroll-hide">
             <li
               className="flex gap-1 p-[8px] mr-[1px] bg-[#f2f2f2] rounded-l
             "
@@ -353,7 +353,7 @@ function Flightinner() {
             </li>
           </ul>
         </div>
-        <div className="flex items-center ">
+        <div className="sm:flex items-center hidden">
           <p className="text-[14px] leading-none font-[600] text-gray-600 mr-1">
             Trending Searches:
           </p>
@@ -410,7 +410,9 @@ function Flightinner() {
           </ul>
         </div>
       </div>
-      <Search handleSearch={handleSearch} />
+      <div className=" sm:absolute sm:-bottom-15   flex justify-center w-full">
+        <Search handleSearch={handleSearch} />
+      </div>
     </div>
   );
 }
