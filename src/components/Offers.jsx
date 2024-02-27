@@ -16,9 +16,9 @@ function Offers() {
 
     return (
         <div className='overflow-scroll px-4 my-16 bg-white scroll-hide '>
-            <div className='flex justify-between my-2'><span className='text-xl font-bold'>OFFERS</span><span className='text-blue-600 font-semibold'>View All</span></div>
+            <div className='flex justify-between my-2 px-2'><span className='text-xl font-bold'>OFFERS</span><span className='text-blue-600 font-semibold'>View All</span></div>
             <div className='overflow-scroll w-full scroll-hide'>
-                <ul className='flex cursor-pointer gap-6 w-full overflow-scroll scroll-hide bg-white p-4 rounded-lg'>
+                <ul className='flex px-2 cursor-pointer gap-6 w-full overflow-scroll scroll-hide bg-white p-4 rounded-lg'>
                     <li className={`  ${active == "ALL" ? "border-blue-600  border-b-2 text-blue-600" : ""} font-bold `}
                         onClick={() => {
                             setactive("ALL")
@@ -59,14 +59,11 @@ function Offers() {
                 </ul>
                 <hr />
             </div>
-            <div className='py-4  flex  overflow-scroll gap-2 scroll-hide ' >
+            <div className='py-4 px-2 flex  overflow-scroll gap-2 scroll-hide ' >
                 {offers?.map((obj, index) => {
                     return <OfferCard obj={obj} key={index} />
                 })}
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
+
             </div>
 
 

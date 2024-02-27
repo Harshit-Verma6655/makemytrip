@@ -8,14 +8,14 @@ import Footer from '../components/Footer';
 function Home() {
     return (
         <div className='w-screen justify-center flex bg-black'>
-            <div className="w-screeen bg-[rgb(242,242,242)] max-w-[1600px]  ">
+            <div className="w-full bg-[rgb(242,242,242)] max-w-[1600px]  ">
                 <div
                     style={{
                         backgroundImage: `url(${url})`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                         height: "750px",
-                        width: "100%",
+
                     }}
 
                 >

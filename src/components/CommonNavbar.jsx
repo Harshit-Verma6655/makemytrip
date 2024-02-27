@@ -14,7 +14,7 @@ import login from '../../assets/mylogo.png';
 import country from '../../assets/countryindia.png';
 function CommonNavbar() {
     return (<div className='flex justify-center w-screen'>
-        <div className='w-[1200px] mx-[32px] py-[10px] h-[80px] flex items-center bg-[#fff] '>
+        <div className='sm:w-[1200px] w-full sm:mx-[32px] mx-2 py-[10px] h-[80px] flex items-center bg-[#fff] '>
             <div><img width={"113px"} height={"36px"} src='	https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png' />
             </div>
             <div className='mr-[135px]'>

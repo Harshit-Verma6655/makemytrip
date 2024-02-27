@@ -24,17 +24,17 @@ function FlightCard({ detail }) {
         setviewFlight(!viewFlight);
     }
     return <>
-        <div className='w-[900px]  shadow-lg mb-4  bg-white'>
+        <div className='sm:w-[900px] w-screen shadow-lg mb-4  bg-white'>
 
-            <div className='pt-[14px] px-4  mt-[8px] '>
-                <div className='flex justify-between'>
-                    <div className='flex items-center justify-start '>
+            <div className='pt-[14px] px-4   mt-[8px] '>
+                <div className='flex sm:justify-between flex-col   sm:flex-row'>
+                    <div className='flex items-start justify-start mb-2 '>
                         <div className='flex justify-start items-center'>
                             <span className='mr-[10px]'>
-                                <img width={"32px"} height={"32px"} src={logo[flightIndex][1]}></img>
+                                <img width={"40px"} height={"40px"} src={logo[flightIndex][1]}></img>
                             </span>
                         </div>
-                        <div className='flex flex-col mr-16 justify-start items-start '>
+                        <div className='flex flex-col sm:mr-16 justify-start items-start '>
                             <p className='font-semibold'>{logo[flightIndex][0]}</p>
                             <p className='text-xs text-[#878787]'>{detail?.flightID}</p>
                         </div>
@@ -53,7 +53,7 @@ function FlightCard({ detail }) {
                                             </div>
                                             <div className='mr-[10px] flex flex-col items-center '>
                                                 <p className='text-xs'>
-                                                    11 <span className='text-[#757575]'>h</span> 40 <span className='text-[#757575]'>m</span>
+                                                    {detail?.duration} <span className='text-[#757575]'>h</span> 00 <span className='text-[#757575]'>m</span>
                                                 </p>
                                                 <div className='flex flex-col justify-center items-center'>
                                                     <div>
@@ -81,19 +81,19 @@ function FlightCard({ detail }) {
                         </div>
 
                     </div>
-                    <div className='mb-[20px] flex items-center justify-center '>
+                    <div className='mb-[20px] flex items-center  '>
                         <div>
                             <div className='mr-[10px] flex flex-col justify-center items-center'>
                                 <div className='text-[18px] font-black'>₹ {detail?.ticketPrice}</div>
                                 <p className='text-xs'>per Adult</p>
                             </div>
                         </div>
-                        <button className='border border-[#008cff] text-[008cff] bg-[#daebff] text-sm text-bold h-[31px] rounded-[96px] px-[8px]'><span className='text-[#008cff]'>BOOK NOW</span></button>
+                        <button className='border  border-[#008cff] text-[008cff] bg-[#daebff] text-sm text-bold h-[31px] rounded-[96px] px-[8px]'><span className='text-[#008cff]'>BOOK NOW</span></button>
                     </div>
 
                 </div>
             </div>
-            <div className='flex justify-end cursor-pointer px-4 mb-3'>
+            <div className='flex sm:justify-end cursor-pointer px-4 mb-3'>
                 <span className='p-[8px] flex items-center bg-[#e9f3ff] w-fit px-3'>
                     <span className='mr-[5px]'><img width={"12px"} height={"12px"} src='https://imgak.mmtcdn.com/flights/assets/media/dt/listing/plc.png' /></span>
                     <span className='text-[#008cff] text-xs mr-1'>Lock this price for ₹ 319
@@ -104,12 +104,12 @@ function FlightCard({ detail }) {
                 </span>
             </div>
             <div className='px-4'>
-                <p className='py[3px] px-4  flex justify-center items-center' style={{ background: "rgb(255, 237, 209)" }}>
+                <p className='py-[3px] px-4  flex justify-center items-center' style={{ background: "rgb(255, 237, 209)" }}>
                     <div className='w-2 h-2 bg-red-500 rounded-full mr-2'></div>
                     <span className='text-xs'>Get Rs 250 off using MMTBONUS* & complimentary meal on this flight</span>
                 </p>
             </div>
-            <div className='flex justify-end px-4 mt-2 p-4 shadow-lg'>
+            <div className='flex sm:justify-end  px-4 mt-2 p-4 shadow-lg'>
                 < span className='cursor-pointer text-xs text-[#0091ff] ' onClick={handleView}>{!viewFlight ? "View Flight Details" : "Hide Flight Details"}</span>
             </div>
             {viewFlight && <>

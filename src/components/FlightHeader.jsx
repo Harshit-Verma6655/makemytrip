@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { airportSearch } from '../APIs/flightSearch';
 import { useFlightContext } from '../FlightContext/FlightContext';
 import Search from './Search';
+import { useNavigate } from 'react-router-dom';
 function FlightHeader() {
 
     let [srcCity, setsrcCity] = useState(null);
@@ -15,6 +16,8 @@ function FlightHeader() {
     let [destInput, setdestInput] = useState();
 
     const { SearchFlights } = useFlightContext();
+
+    let navigate = useNavigate();
     let handleCity = (e) => {
         setsrcInput(e.target.value);
         if (e.target.value) {
@@ -54,7 +57,8 @@ function FlightHeader() {
     }
     const handleSearch = () => {
         // console.log(src, dest, day);
-        SearchFlights(day, src, dest);
+        SearchFlights(src, dest, day);
+        navigate(`/flight/${src.iata_code}-${dest.iata_code}-${day}`);
     }
     return <>
         <header className='bg-[#041422] h-[115px]'>
@@ -65,7 +69,7 @@ function FlightHeader() {
                     <div>
                         <div className="">
                             <div className=" mb-2 rounded-lg flex h-fit  ">
-                                <div className=" mr-3 p-[2px] w-[120px] h-[52px] rounded" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                <div className=" hidden sm:block mr-3 p-[2px] w-[120px] h-[52px] rounded" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                     <label htmlFor="return" className="">
                                         <span className="flex pl-[15px] items-center gap-3">
                                             <span className="text-gray-600">Trip type</span>
@@ -95,7 +99,7 @@ function FlightHeader() {
                                     </label>
                                 </div>
                                 <div className="   flex justify-center items-center    relative">
-                                    <div className="px-[9px] py-[4px] w-[160px] h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                    <div className="px-[9px] py-[4px] sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                         <label className=" w-full text-[#008cff] text-sm">From</label>
                                         <input
                                             type="text"
@@ -164,7 +168,7 @@ function FlightHeader() {
                                     </span>
                                 </div>
                                 <div className="   flex justify-center items-center relative   ml-6">
-                                    <div className="px-[9px] py-[4px] w-[160px] h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                    <div className="px-[9px] py-[4px] sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                         <label className=" w-full text-[#008cff] text-sm">To</label>
                                         <input
                                             type="text"
@@ -245,7 +249,7 @@ function FlightHeader() {
 
 
 
-                                <div className=" mr-3 p-[2px] w-[160px] h-[52px] rounded" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                <div className=" hidden sm:block mr-3 p-[2px] w-[160px] h-[52px] rounded" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                     <label htmlFor="return" className="">
                                         <span className="flex pl-[15px] items-center gap-3">
                                             <span className="text-gray-600">Return</span>
@@ -275,7 +279,7 @@ function FlightHeader() {
                                     </label>
                                 </div>
 
-                                <div className=" p-[2px] mr-10  w-[160px] h-[52px] " style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                <div className=" hidden sm:block p-[2px] mr-10  w-[160px] h-[52px] " style={{ background: "hsla(0,0%,100%,.1)" }}>
                                     <label htmlFor="return" className="relative h-full w-full">
                                         <span className="flex pl-[15px]  items-center gap-1">
                                             <span className="text-sm text-gray-600">
@@ -305,12 +309,12 @@ function FlightHeader() {
                                         </p>
                                     </label>
                                 </div>
-                                <div >
+                                <div className='hidden sm:block'>
 
                                     <Search handleSearch={handleSearch} />
                                 </div>
                             </div>
-                            <div >
+                            <div className='hidden sm:block' >
                                 <div className='flex justify-start'>
                                     <div className="flex justify-between mb-4">
                                         <div className="flex items-center ">
@@ -383,6 +387,10 @@ function FlightHeader() {
 
                                     </div>
                                 </div>
+                            </div>
+                            <div className='block sm:hidden w-full' >
+
+                                <Search handleSearch={handleSearch} />
                             </div>
                         </div>
                     </div>

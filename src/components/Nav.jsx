@@ -12,7 +12,7 @@ import travel from "../../assets/triplogos/travelinsu-1.png";
 function Nav() {
   return (
     <div className="w-full  flex justify-center absolute top-0 z-10 ">
-      <div className="sm:w-[928px] h-[110px] sm:flex   bg-white px-6 pt-3 rounded-lg hidden gap-12 text-sm shadow-lg">
+      <div className="sm:w-[928px] h-[110px] sm:flex w-screen  bg-white px-6 pt-3 rounded-lg hidden gap-12 text-sm shadow-lg">
         <div>
           <img width={"62px"} src={flight} />
           <NavLink className="mt-2 inline-block text-[#4a4a4a] text-[14px]">

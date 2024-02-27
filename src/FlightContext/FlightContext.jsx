@@ -12,7 +12,7 @@ export const useFlightContext = () => {
 
 function FlightContextProvider({ children }) {
 
-    let { query } = useParams();
+
 
 
     const [flights, setflights] = useState();
@@ -36,10 +36,12 @@ function FlightContextProvider({ children }) {
     const setdest = (airport) => {
         setDest(airport);
     }
-    const SearchFlights = (filter = {}) => {
+    const SearchFlights = (src, dest, day, filter = {}) => {
         //
+        setSrc(src);
+        setDay(day);
+        setDest(dest);
 
-        console.log("query", query);
         if (src && dest) {
             let dateObj = new Date(day);
 
