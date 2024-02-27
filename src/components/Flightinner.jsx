@@ -61,29 +61,29 @@ function Flightinner() {
 
   return (
     <div className=" scroll-hide relative" onClick={() => { setdestCity(); setsrcCity(); }}>
-      <div className="flex justify-between scroll-hide">
-        <div className="flex gap-7 ml-2 scroll-hide">
-          <label htmlFor="One" className="hover:bg-blue-50 px-2 py-1 rounded-full cursor-pointer">
+      <div className="flex sm:justify-between  scroll-hide">
+        <div className="flex gap-7 sm:ml-2 scroll-hide  rounded-lg bg-gray-300 ">
+          <label htmlFor="One" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="One" />
             <span className="font-bold">One way</span>
           </label>
-          <label htmlFor="Round" className="hover:bg-blue-50 px-2 py-1 rounded-full cursor-pointer">
+          <label htmlFor="Round" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="Round" />
             <span className="font-bold">Round Trip</span>
           </label>
-          <label htmlFor="Multi" className="hover:bg-blue-50 px-2 py-1 rounded-full cursor-pointer">
+          <label htmlFor="Multi" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="Multi" />
             <span className="font-bold">Multi city</span>
           </label>
         </div>
-        <span className="text-gray-600 sm:visible invisible">
+        <span className="text-gray-600 sm:block hidden">
           Book International and Domestic Flights
         </span>
       </div>
       <div className="py-[11px] mb-[8px]">
         <div className="sm:h-fit border-gray-300 border rounded-lg flex flex-col sm:flex-row sm:gap-0 gap-2 ">
           <div className="sm:w-[300px] sm:h-[130px] h-full w-full    border-gray-300  sm:border-r relative">
-            <div className="px-[25px] py-[10px] justify-ceter flex flex-col">
+            <div className="px-[25px] py-[10px] justify-ceter flex flex-col ">
               <label className="mb-1 w-full text-gray-600">From</label>
               <input
                 type="text"

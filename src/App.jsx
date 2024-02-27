@@ -6,6 +6,7 @@ import Flightfilter from "./Pages/Flightfilter";
 import FlightCard from "./components/FlightCard";
 import { Route, Routes } from "react-router-dom";
 import FlightHeader from "./components/FlightHeader";
+import SearchFlight from "./Pages/SearchFlight";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -15,7 +16,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-
+        <Route path="/searchFlight" element={<SearchFlight />} />
         <Route path="/flight/:query" element={<Flightfilter />} />
       </Routes>
 

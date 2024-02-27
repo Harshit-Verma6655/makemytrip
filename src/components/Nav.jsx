@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import hotel from "../../assets/triplogos/hotel-2.png";
@@ -9,14 +10,15 @@ import bus from "../../assets/triplogos/bus-2.png";
 import cab from "../../assets/triplogos/car-2.png";
 import forex from "../../assets/triplogos/forex-2.png";
 import travel from "../../assets/triplogos/travelInsu-2.png";
-function Nav() {
+function Nav({ handleFlight }) {
   return (
     <div className="w-full  flex justify-center absolute top-0 z-10 ">
       <div className="sm:w-[928px] h-[110px] sm:flex w-screen  bg-white px-6 pt-3 rounded-lg hidden gap-12 text-sm shadow-lg">
-        <div>
+        <div onClick={handleFlight}>
           <img width={"62px"} src={flight} />
-          <NavLink className="mt-2 inline-block text-[#4a4a4a] text-[14px]">
+          <NavLink className="mt-2 inline-block text-[#4a4a4a] text-[14px]" >
             Flights
+
           </NavLink>
         </div>
         <div>
@@ -69,7 +71,7 @@ function Nav() {
         </div>
       </div>
       <div className="w-full mx-2 py-6 sm:hidden   bg-[rgb(242,242,242)] gap-2 justify-center pt-3 rounded-lg flex flex-wrap  text-sm shadow-lg  items-center">
-        <div className="bg-white p-6 rounded-lg">
+        <div className="bg-white p-6 rounded-lg" onClick={handleFlight}>
           <img width={"62px"} src={flight} />
           <NavLink className="mt-2 inline-block text-[#4a4a4a] text-[14px]">
             Flights

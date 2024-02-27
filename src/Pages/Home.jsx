@@ -8,8 +8,9 @@ import Footer from '../components/Footer';
 import qr from '../../assets/qr.png';
 import phn from '../../assets/dwnld.png';
 import CommonNavbar from '../components/CommonNavbar';
+import { useNavigate } from 'react-router-dom';
 function Home() {
-
+    let navigate = useNavigate();
     let [visible, setvisible] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
@@ -19,6 +20,15 @@ function Home() {
 
         window.addEventListener('scroll', handleScroll)
     }, [])
+
+
+    function handleFlight() {
+        console.log("innerwidth", window.innerWidth);
+        if (window.innerWidth < 640) {
+            navigate("/searchFlight");
+        }
+    }
+
     return (
         <div className='w-screen justify-center flex bg-black'>
             <div className="w-full bg-[rgb(242,242,242)] max-w-[1600px]  ">
@@ -35,15 +45,17 @@ function Home() {
                     <Header />
                     {visible && <div className='fixed top-0 z-50 hidden sm:block'><CommonNavbar /></div>}
                     <div className="relative mb-2 ">
-                        <Nav />
+                        <Nav handleFlight={handleFlight} />
                         <div className='hidden w-full sm:top-[55px] sm:block absolute'>
                             <Flight />
                         </div>
                     </div>
 
                 </div>
-                <div className='sm:hidden mb-2'><Flight /></div>
-                <div className='mt-2 px-6 flex justify-center w-full'><img className='h-[40px] ' src='https://platforms.makemytrip.com/contents/66b7f04f-b0a5-404f-86f6-c543b7f08c46' /></div>
+
+                <div className='mt-2 px-6 flex justify-center w-full'>
+                    <img className='h-[40px] ' src='https://platforms.makemytrip.com/contents/66b7f04f-b0a5-404f-86f6-c543b7f08c46' />
+                </div>
 
                 <div className='w-full flex justify-center mt-4 '>
                     <div className='flex justify-between gap-6 p-10 bg-white shadow-lg rounded-lg'>
