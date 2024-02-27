@@ -61,7 +61,7 @@ function FlightHeader() {
         navigate(`/flight/${src.iata_code}-${dest.iata_code}-${day}`);
     }
     return <>
-        <header className='bg-[#041422] h-[115px]'>
+        <header className='bg-[#041422] sm:h-[115px] h-fit'>
 
             <div className='py-[8px]'>
                 <div className='mx-[10px] flex flex-col  items-center  text-white'>
