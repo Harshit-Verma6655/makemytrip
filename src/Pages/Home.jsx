@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header';
 import Nav from '../components/Nav';
 import Flight from '../components/Flight';
@@ -7,7 +7,18 @@ import Offers from '../components/Offers';
 import Footer from '../components/Footer';
 import qr from '../../assets/qr.png';
 import phn from '../../assets/dwnld.png';
+import CommonNavbar from '../components/CommonNavbar';
 function Home() {
+
+    let [visible, setvisible] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const position = 120;
+            setvisible(window.scrollY >= position);
+        }
+
+        window.addEventListener('scroll', handleScroll)
+    }, [])
     return (
         <div className='w-screen justify-center flex bg-black'>
             <div className="w-full bg-[rgb(242,242,242)] max-w-[1600px]  ">
@@ -22,6 +33,7 @@ function Home() {
 
                 >
                     <Header />
+                    {visible && <div className='fixed top-0 z-50 hidden sm:block'><CommonNavbar /></div>}
                     <div className="relative mb-2 ">
                         <Nav />
                         <div className='hidden w-full sm:top-[55px] sm:block absolute'>
