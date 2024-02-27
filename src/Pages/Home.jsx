@@ -5,6 +5,8 @@ import Flight from '../components/Flight';
 import url from '../../assets/bg2.jpg';
 import Offers from '../components/Offers';
 import Footer from '../components/Footer';
+import qr from '../../assets/qr.png';
+import phn from '../../assets/dwnld.png';
 function Home() {
     return (
         <div className='w-screen justify-center flex bg-black'>
@@ -14,13 +16,13 @@ function Home() {
                         backgroundImage: `url(${url})`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
-                        height: "750px",
+                        height: "700px",
 
                     }}
 
                 >
                     <Header />
-                    <div className="relative  ">
+                    <div className="relative mb-2 ">
                         <Nav />
                         <div className='hidden w-full sm:top-[55px] sm:block absolute'>
                             <Flight />
@@ -28,8 +30,29 @@ function Home() {
                     </div>
 
                 </div>
-                <div className='sm:hidden'><Flight /></div>
+                <div className='sm:hidden mb-2'><Flight /></div>
+                <div className='mt-2 px-6 flex justify-center w-full'><img className='h-[40px] ' src='https://platforms.makemytrip.com/contents/66b7f04f-b0a5-404f-86f6-c543b7f08c46' /></div>
 
+                <div className='w-full flex justify-center mt-4 '>
+                    <div className='flex gap-4 p-10 bg-white shadow-lg rounded-lg'>
+                        <div className='flex gap-4'>
+                            <img src={phn} className='w-[50px] h-[60px] rounded-lg' />
+                            <div>
+                                <h1 className='font-black flex gap-6'>
+
+                                    Download App Now !
+                                </h1>
+                                <p className='text-gray-500 text-md'>Use code WELCOMEMMT and get FLAT 12% OFF* on <br />your first domestic flight booking</p>
+                            </div>
+                        </div>
+                        <div className='flex flex-wrap gap-4'>
+                            <div>
+                                <div className='bg-[url("https://imgak.mmtcdn.com/pwa_v3/pwa_mmt_ui_assets/app-sprite.webp")] w-[149px] h-[44px] mb-4 ' style={{ backgroundPosition: "-3px -55px", backgroundSize: "250px 250px", objectFit: "contain" }}></div>
+                                <div className='bg-[url("https://imgak.mmtcdn.com/pwa_v3/pwa_mmt_ui_assets/app-sprite.webp")] w-[152px] h-[50px] ' style={{ backgroundPosition: "0px 0px", backgroundSize: "250px 250px", objectFit: "contain" }}></div></div>
+                            <div ><img src={qr} className='h-[100px] w-[100px]' /></div>
+                        </div>
+                    </div>
+                </div>
                 <Offers />
                 <Footer />
             </div>

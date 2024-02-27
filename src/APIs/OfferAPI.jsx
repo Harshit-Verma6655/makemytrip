@@ -2,7 +2,7 @@ export async function OfferAPI(filter = { "type": "ALL" }) {
     let filterString = JSON.stringify(filter);
 
 
-    let res = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/offers?limit=50&filter= 
+    let res = await fetch(`https://academics.newtonschool.co/api/v1/bookingportals/offers?limit=10&page=2&filter= 
     ${filterString}
     `, {
         headers: {
