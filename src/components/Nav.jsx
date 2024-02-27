@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import hotel from "../../assets/triplogos/hotel-1.png";
-import flight from "../../assets/triplogos/flight-1.png";
-import home from "../../assets/triplogos/villa-1.png";
+import hotel from "../../assets/triplogos/hotel-2.png";
+import flight from "../../assets/triplogos/flight-2.png";
+import home from "../../assets/triplogos/villa-2.png";
 import holiday from "../../assets/triplogos/umbrella1.png";
-import train from "../../assets/triplogos/train-1.png";
-import bus from "../../assets/triplogos/bus-1.png";
-import cab from "../../assets/triplogos/car1.png";
-import forex from "../../assets/triplogos/forexcard-1.png";
-import travel from "../../assets/triplogos/travelinsu-1.png";
+import train from "../../assets/triplogos/train-2.png";
+import bus from "../../assets/triplogos/bus-2.png";
+import cab from "../../assets/triplogos/car-2.png";
+import forex from "../../assets/triplogos/forex-2.png";
+import travel from "../../assets/triplogos/travelInsu-2.png";
 function Nav() {
   return (
     <div className="w-full  flex justify-center absolute top-0 z-10 ">

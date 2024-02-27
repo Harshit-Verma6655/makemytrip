@@ -34,18 +34,18 @@ function Home() {
                 <div className='mt-2 px-6 flex justify-center w-full'><img className='h-[40px] ' src='https://platforms.makemytrip.com/contents/66b7f04f-b0a5-404f-86f6-c543b7f08c46' /></div>
 
                 <div className='w-full flex justify-center mt-4 '>
-                    <div className='flex gap-4 p-10 bg-white shadow-lg rounded-lg'>
-                        <div className='flex gap-4'>
+                    <div className='flex justify-between gap-6 p-10 bg-white shadow-lg rounded-lg'>
+                        <div className='flex gap-4 flex-1'>
                             <img src={phn} className='w-[50px] h-[60px] rounded-lg' />
-                            <div>
-                                <h1 className='font-black flex gap-6'>
+                            <div >
+                                <h1 className='font-black flex gap-10'>
 
                                     Download App Now !
                                 </h1>
-                                <p className='text-gray-500 text-md'>Use code WELCOMEMMT and get FLAT 12% OFF* on <br />your first domestic flight booking</p>
+                                <p className='text-gray-500 text-md'>Use code WELCOMEMMT and get FLAT 12% OFF*  on your first domestic flight booking</p>
                             </div>
                         </div>
-                        <div className='flex flex-wrap gap-4'>
+                        <div className='flex flex-wrap gap-4 justify-end flex-1'>
                             <div>
                                 <div className='bg-[url("https://imgak.mmtcdn.com/pwa_v3/pwa_mmt_ui_assets/app-sprite.webp")] w-[149px] h-[44px] mb-4 ' style={{ backgroundPosition: "-3px -55px", backgroundSize: "250px 250px", objectFit: "contain" }}></div>
                                 <div className='bg-[url("https://imgak.mmtcdn.com/pwa_v3/pwa_mmt_ui_assets/app-sprite.webp")] w-[152px] h-[50px] ' style={{ backgroundPosition: "0px 0px", backgroundSize: "250px 250px", objectFit: "contain" }}></div></div>
