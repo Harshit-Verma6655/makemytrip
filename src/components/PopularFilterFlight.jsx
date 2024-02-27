@@ -75,7 +75,7 @@ function PopularFilterFlight() {
         <div className='sm:w-[295px] w-screen bg-[#041422] text-white sm:text-black  h-fit shadow-xl sm:bg-white'>
             <div className='px-[15px] py-[12px] flex flex-col'>
                 <p className='mb-[10px] text-[18px] font-bold'>Popular Filters</p>
-                <div className='sm:w-[265px] w-full sm:h-[173px] h-fit sm:mb-6 gap-2 flex sm:flex-col'>
+                <div className='sm:w-[265px] w-full sm:h-[173px] h-fit sm:mb-6 gap-2 flex items-center sm:flex-col'>
                     <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'>
                         <label className='flex' >
                             <span><input type='checkbox' name='nonstop' className='w-[18px] h-[18px]'
