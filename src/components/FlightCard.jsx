@@ -57,7 +57,7 @@ function FlightCard({ detail }) {
                                                 </p>
                                                 <div className='flex flex-col justify-center items-center'>
                                                     <div>
-                                                        <p className='mx-[35px] my-[6px]'>
+                                                        <p className='sm:mx-[35px] my-[6px]'>
                                                             <img src={`../../assets/${detail?.stops}.png`} />
                                                         </p>
                                                     </div>
@@ -126,7 +126,7 @@ function FlightCard({ detail }) {
                                 <div>
                                     <div className='border border-[#dfdfdf] rounded-md'>
                                         <p className='px-[12px] py-[10px] font-[600] border-b border-[#dfdfdf]'>
-                                            Mumbai to New Delhi , 10 Feb
+                                            {detail?.source + " to " + detail.destination + " 10 Feb"}
                                         </p>
                                         <div className='p-[12px]'>
                                             <div>
@@ -145,10 +145,10 @@ function FlightCard({ detail }) {
                                                             <label>
                                                                 <div className='py-[5px] px-[10px]'>
                                                                     <div>
-                                                                        <div className='flex gap-6'>
-                                                                            <div className='mr-[10px] flex flex-col items-center justify-center'>
+                                                                        <div className='flex sm:gap-6'>
+                                                                            <div className='sm:mr-[10px] flex flex-col items-center justify-center'>
                                                                                 <p >
-                                                                                    <span className='font-black text-lg'>{detail?.departureTime}</span>
+                                                                                    <span className='font-black text-sm'>{detail?.departureTime}</span>
                                                                                 </p>
                                                                                 <p className='text-xs font-semibold'>
                                                                                     {detail?.source}
@@ -169,7 +169,7 @@ function FlightCard({ detail }) {
                                                                             </div>
                                                                             <div className=''>
                                                                                 <p className='mb-[2px]'>
-                                                                                    <span className='font-black text-lg  mr-1'>10:30</span>
+                                                                                    <span className='font-black text-sm  mr-1'>10:30</span>
                                                                                     <span className='text-red-500 text-[10px] '>+1 day</span>
                                                                                 </p>
                                                                                 <p className='text-[#000000] text-xs font-semibold'>
@@ -183,8 +183,8 @@ function FlightCard({ detail }) {
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div className='mx-[50px]'>
-                                                        <p className='mb-2 flex font-bold text-sm'>
+                                                    <div className='sm:mx-[50px]'>
+                                                        <p className='mb-2 flex font-bold text-xs'>
                                                             <span className='pr-3'>BAGGAGE :</span>
                                                             <span className='pr-3'>CHECK IN </span>
                                                             <span className='pr-3'>CABIN </span>

@@ -2,6 +2,7 @@
 /* eslint-disable no-empty */
 import React, { useEffect, useState } from 'react'
 import { useFlightContext } from '../FlightContext/FlightContext';
+import { useParams } from 'react-router-dom';
 
 function PopularFilterFlight() {
     let [nonStop, setnonStop] = useState(false);
@@ -10,7 +11,12 @@ function PopularFilterFlight() {
     let [departureTime, setdepartureTime] = useState();
     let [arrivalTime, setarrivalTime] = useState();
     let [filter, setfilter] = useState();
+    let { query } = useParams();
 
+    let arr = query.split("-");
+    let day = `${arr[2]}-${arr[3]}-${arr[4]}`;
+    let src = { iata_code: arr[0] };
+    let dest = { iata_code: arr[1] };
     let [departureActive, setdepartureActive] = useState();
     const { SearchFlights } = useFlightContext();
 
@@ -24,7 +30,7 @@ function PopularFilterFlight() {
         if (nonStop && oneStop) {
             setfilter((prev) => {
                 let filter1 = { ...prev, stops: { ...prev?.stops, "$gte": 0, "$lte": 1 } };
-                SearchFlights(filter1);
+                SearchFlights(src, dest, day, filter1);
                 return filter1;
             }
             );
@@ -33,7 +39,7 @@ function PopularFilterFlight() {
         } else if (nonStop && !oneStop) {
             setfilter((prev) => {
                 let filter1 = { ...prev, stops: { ...prev?.stops, "$lte": 0 } };
-                SearchFlights(filter1);
+                SearchFlights(src, dest, day, filter1);
                 return filter1;
             }
             );
@@ -42,7 +48,7 @@ function PopularFilterFlight() {
         } else if (!nonStop && oneStop) {
             setfilter((prev) => {
                 let filter1 = { ...prev, stops: { ...prev?.stops, "$lte": 1, "$gte": 1 } };
-                SearchFlights(filter1);
+                SearchFlights(src, dest, day, filter1);
                 return filter1;
             }
             );
@@ -52,7 +58,7 @@ function PopularFilterFlight() {
 
             setfilter((prev) => {
                 let filter1 = { ...prev, stops: { ...prev?.stops, "$lte": 8, "$gte": 0 } };
-                SearchFlights(filter1);
+                SearchFlights(src, dest, day, filter1);
                 return filter1;
             }
             );
@@ -66,11 +72,11 @@ function PopularFilterFlight() {
 
 
     return (
-        <div className='w-[295px] h-fit shadow-xl bg-white'>
+        <div className='sm:w-[295px] w-screen bg-[#041422] text-white sm:text-black  h-fit shadow-xl sm:bg-white'>
             <div className='px-[15px] py-[12px] flex flex-col'>
                 <p className='mb-[15px] text-[18px] font-bold'>Popular Filters</p>
-                <div className='w-[265px] h-[173px] mb-6'>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
+                <div className='sm:w-[265px] w-full sm:h-[173px] h-fit mb-6 gap-2 flex sm:flex-col'>
+                    <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'>
                         <label className='flex' >
                             <span><input type='checkbox' name='nonstop' className='w-[18px] h-[18px]'
                                 onChange={(e) => {
@@ -80,18 +86,18 @@ function PopularFilterFlight() {
                             ></input></span>
                             <div className='ml-[10px]'><p>Non Stop</p></div>
                         </label>
-                        <span className='ml-[5px]'>₹ 4,869</span>
+                        <span className='ml-[5px] hidden sm:block'>₹ 4,869</span>
                     </div>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
+                    <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'>
                         <label className='flex'>
                             <span><input type='checkbox'
                                 onChange={(e) => setoneStop(e.target.checked)}
                                 className='w-[18px] h-[18px]'></input></span>
                             <div className='ml-[10px]'><p>1 Stop</p></div>
                         </label>
-                        <span className='ml-[5px]'>₹ 4,869</span>
+                        <span className='ml-[5px] hidden sm:block'>₹ 4,869</span>
                     </div>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'
+                    <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'
                         onClick={() => {
 
                             setfilter((prev) => {
@@ -99,7 +105,7 @@ function PopularFilterFlight() {
                                     ...prev, duration
                                         : { "$lte": 3 }
                                 };
-                                SearchFlights(filter1);
+                                SearchFlights(src, dest, day, filter1);
                                 return filter1;
                             })
 
@@ -111,9 +117,9 @@ function PopularFilterFlight() {
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
                             <div className='ml-[10px]'><p>Duration</p></div>
                         </label>
-                        <span className='ml-[5px]'>  In 3hrs </span>
+                        <span className='ml-[5px] hidden sm:block'>   3hrs </span>
                     </div>
-                    <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'
+                    <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'
                         onClick={() => {
                             setdepartureActive("noon")
                             setfilter((prev) => {
@@ -122,7 +128,7 @@ function PopularFilterFlight() {
                                     ...prev, departureTime
                                         : { "$gte": "12:00", "$lte": "18:00" }
                                 };
-                                SearchFlights(filter1);
+                                SearchFlights(src, dest, day, filter1);
                                 return filter1;
                             })
 
@@ -134,16 +140,16 @@ function PopularFilterFlight() {
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
                             <div className='ml-[10px] '><p> Morning</p></div>
                         </label>
-                        <span className='ml-[5px] text-xs '>6AM- 12PM</span>
+                        <span className='ml-[5px] text-xs hidden sm:block '>6AM- 12PM</span>
                     </div>
 
 
-                    <button className='mb-15px'
+                    <button className='mb-15px hidden sm:block'
                         onClick={() => {
                             setdepartureActive(null);
                             setfilter((prev) => {
                                 let filter1 = {};
-                                SearchFlights(filter1);
+                                SearchFlights(src, dest, day, filter1);
 
                                 return filter1;
                             })
@@ -155,7 +161,7 @@ function PopularFilterFlight() {
                     </button>
 
                 </div>
-                <div className='py-[12px] px-[15px] mb-8'>
+                <div className='py-[12px] px-[15px] mb-8 hidden sm:block'>
                     <p className='mb-[15px] text-lg font-semibold'>One way Price</p>
                     <div>
                         <div>
@@ -170,7 +176,7 @@ function PopularFilterFlight() {
                                         setmaxPrice(price);
                                         setfilter((prev) => {
                                             let filter1 = { ...prev, ticketPrice: { ...prev?.ticketPrice, "$gte": 0, "$lte": price } };
-                                            SearchFlights(filter1);
+                                            SearchFlights(src, dest, day, filter1);
                                             return filter1;
                                         });
                                     }}
@@ -187,7 +193,7 @@ function PopularFilterFlight() {
                         </div>
                     </div>
                 </div>
-                <div className='mb-8'>
+                <div className='mb-8 hidden sm:block'>
                     <p className='mb-[15px] font-bold'>Stops From Mumbai</p>
                     <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
                         <label className='flex' >
@@ -211,9 +217,9 @@ function PopularFilterFlight() {
                         <span className='ml-[5px]'>₹ 4,869</span>
                     </div>
                 </div>
-                <div className='mb-8' >
+                <div className='mb-8 hidden sm:block' >
 
-                    <p className='mb-[15px] font-bold'>Departure From Mumbai</p>
+                    <p className='mb-[15px] font-bold '>Departure From Mumbai</p>
                     <div className='flex flex-wrap justify-between'>
                         <div className={`mr-[10px] mb-[12px] border p-[5px] rounded-lg flex flex-col items-center cursor-pointer ${departureActive == "night" ? "bg-[#068eff] text-white" : ""}`}
                             onClick={() => {
@@ -266,7 +272,7 @@ function PopularFilterFlight() {
                                     ...prev, departureTime
                                         : { "$gte": "12:00", "$lte": "18:00" }
                                 };
-                                SearchFlights(filter1);
+                                SearchFlights(src, dest, day, filter1);
                                 return filter1;
                             })
 
@@ -290,7 +296,7 @@ function PopularFilterFlight() {
                                         ...prev, departureTime
                                             : { "$gte": "18:00", "$lte": "00:00" }
                                     };
-                                    SearchFlights(filter1);
+                                    SearchFlights(src, dest, day, filter1);
                                     return filter1;
                                 })
 
@@ -318,7 +324,7 @@ function PopularFilterFlight() {
                                 ...prev, departureTime
                                     : { "$gte": "00:00" }
                             };
-                            SearchFlights(filter1);
+                            SearchFlights(src, dest, day, filter1);
                             return filter1;
                         })
                     }}>Clear Filter</button>}
@@ -326,7 +332,7 @@ function PopularFilterFlight() {
 
 
 
-                <div className='mb-8'>
+                <div className='mb-8 hidden sm:block'>
                     <p className='mb-[15px] font-bold'>Arrival at  Mumbai</p>
                     <div className='flex flex-wrap '>
                         <div className='flex'>
@@ -366,7 +372,7 @@ function PopularFilterFlight() {
                     </div>
 
                 </div>
-                <div>
+                <div className='hidden sm:block'>
                     <p className='mb-[15px] text-[18px] font-bold'>Airlines</p>
                     <div className='w-[265px] mb-[12px] h-[26px] flex items-center justify-between'>
                         <label className='flex'>

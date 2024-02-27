@@ -41,6 +41,9 @@ function Flightfilter() {
                     </div>
                 </div>
             </div>
+            <div className='sm:hidden fixed bottom-0 z-50'>
+                <PopularFilterFlight />
+            </div>
         </>
     )
 }
