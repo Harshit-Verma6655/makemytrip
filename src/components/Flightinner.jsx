@@ -94,7 +94,7 @@ function Flightinner() {
               />
               <p className="text-xs text-gray-500 text-left">{srcInput?.name}</p>
               {srcCity && (
-                <ul className="bg-white border absolute top-20 p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px]">
+                <ul className="bg-white z-50 border absolute top-20 p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px]">
                   {srcCity?.map((airport) => {
                     return (
                       <li
@@ -162,7 +162,7 @@ function Flightinner() {
               />
               <p className="text-xs text-gray-500 text-left">{destInput?.name}</p>
               {destCity && (
-                <ul className="bg-white border p-2 pt-4 absolute top-20 overflow-scroll city rounded max-h-[220px] w-[270px]">
+                <ul className="bg-white border z-30 p-2 pt-4 absolute top-20 overflow-scroll city rounded max-h-[220px] w-[270px]">
                   {destCity?.map((airport) => {
                     return (
                       <li

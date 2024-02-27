@@ -99,7 +99,7 @@ function FlightHeader() {
                                     </label>
                                 </div>
                                 <div className="   flex justify-center items-center    relative">
-                                    <div className="px-[9px] py-[4px] sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                    <div className="px-[9px] relative py-[4px] sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                         <label className=" w-full text-[#008cff] text-sm">From</label>
                                         <input
                                             type="text"
@@ -111,7 +111,7 @@ function FlightHeader() {
                                         />
                                         <p className="text-xs text-gray-500 text-left"></p>
                                         {srcCity && (
-                                            <ul className="bg-white border p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px] min-h-[200px]">
+                                            <ul className="bg-white absolute top-12 left-0 z-50 border p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[200px] sm:w-[270px] min-h-[200px]">
                                                 {srcCity?.map((airport) => {
                                                     return (
                                                         <li
@@ -168,19 +168,19 @@ function FlightHeader() {
                                     </span>
                                 </div>
                                 <div className="   flex justify-center items-center relative   ml-6">
-                                    <div className="px-[9px] py-[4px] sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
+                                    <div className="px-[9px] py-[4px] relative sm:w-[160px] sm:h-[52px] rounded justify-ceter flex flex-col" style={{ background: "hsla(0,0%,100%,.1)" }}>
                                         <label className=" w-full text-[#008cff] text-sm">To</label>
                                         <input
                                             type="text"
                                             onChange={handleReturnCity}
                                             value={destInput?.city}
                                             placeholder={`${dest?.iata_code + ", (" + dest?.iata_code + ")"}`}
-                                            className=" w-full text-white  font-bold border-none outline-0 bg-transparent placeholder-white "
+                                            className=" w-full  text-white  font-bold border-none outline-0 bg-transparent placeholder-white "
 
                                         />
                                         <p className="text-xs text-gray-500 text-left"></p>
                                         {destCity && (
-                                            <ul className="bg-white border p-2 pt-4 overflow-scroll city rounded max-h-[220px] w-[270px] min-h-[200px]">
+                                            <ul className="bg-white absolute top-12 w-[200px] border z-50 p-2 pt-4 overflow-scroll city rounded max-h-[220px] sm:w-[270px]  min-h-[200px]">
                                                 {destCity?.map((airport) => {
                                                     return (
                                                         <li
