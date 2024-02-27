@@ -1,10 +1,11 @@
 import React from 'react'
 import Flight from '../components/Flight'
-
+import url from '../../assets/bg2.jpg';
 function SearchFlight() {
     return (
-        <div>
-            <div className='sm:hidden  bg-slate-300 h-[100vh]'><Flight /></div>
+        <div className={` flex flex-col justify-center  h-[100vh] bg-contain `} style={{ backgroundImage: `url(${url})`, }}>
+
+            <div className='sm:hidden  '><Flight /></div>
         </div>
     )
 }
