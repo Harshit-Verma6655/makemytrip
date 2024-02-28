@@ -7,18 +7,7 @@ function FlightCard({ detail }) {
     let [viewFlight, setviewFlight] = useState(false);
     let [flightIndex, setflightIndex] = useState(parseInt(Math.random() * 6));
     let logo = [["IndiGo", "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18"], ["SpiceJet", "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=18"], ["Vistara", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/UK.png?v=18"], ["Akasa Air", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/QP.png?v=18"], ["Air India Express", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/IX.png?v=18"], ["Air India", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=18"]];
-    // setflightIndex(parseInt(Math.random() * 6));
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const position = 200;
-    //         setvisible(window.scrollY <= position);
-    //     }
-    //     window.addEventListener('scroll', handleScroll)
-
-
-
-
-    // }, [])
+   
 
     const handleView = () => {
         setviewFlight(!viewFlight);
