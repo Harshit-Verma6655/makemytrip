@@ -93,7 +93,7 @@ function PopularFilterFlight() {
                             <span><input type='checkbox'
                                 onChange={(e) => setoneStop(e.target.checked)}
                                 className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px]'><p>1 Stop</p></div>
+                            <div className='ml-[10px] text-center'><p>1 Stop</p></div>
                         </label>
                         <span className='ml-[5px] hidden sm:block'>₹ 4,869</span>
                     </div>
