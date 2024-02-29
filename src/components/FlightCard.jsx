@@ -103,7 +103,7 @@ function FlightCard({ detail }) {
             </div>
             {viewFlight && <>
                 <div className='bg-[#fafbfc]'>
-                    <div className=' shadow-inner py-[17px] px-[20px] max-w-full '>
+                    <div className=' shadow-inner sm:py-[17px] py-4 flex flex-col items-center sm:px-[20px] px-2 max-w-full '>
                         <nav className='mb-[24px] flex justify-start w-fit shadow  '>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm  '>FLIGHT DETAILS</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm'>FARE SUMMARY</Link>
