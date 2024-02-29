@@ -7,7 +7,7 @@ function FlightCard({ detail }) {
     let [viewFlight, setviewFlight] = useState(false);
     let [flightIndex, setflightIndex] = useState(parseInt(Math.random() * 6));
     let logo = [["IndiGo", "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=18"], ["SpiceJet", "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=18"], ["Vistara", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/UK.png?v=18"], ["Akasa Air", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/QP.png?v=18"], ["Air India Express", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/IX.png?v=18"], ["Air India", "	https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=18"]];
-   
+
 
     const handleView = () => {
         setviewFlight(!viewFlight);
@@ -103,12 +103,12 @@ function FlightCard({ detail }) {
             </div>
             {viewFlight && <>
                 <div className='bg-[#fafbfc]'>
-                    <div className=' shadow-inner py-[17px] px-[20px] '>
+                    <div className=' shadow-inner py-[17px] px-[20px] max-w-full '>
                         <nav className='mb-[24px] flex justify-start w-fit shadow  '>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm  '>FLIGHT DETAILS</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm'>FARE SUMMARY</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm '>CANCELLATION</Link>
-                            <Link className='py-[7px] px-[14px] bg-[#fff] text-sm   '>DATE CHANGE</Link>
+                            <Link className='py-[7px] px-[14px] bg-[#fff] text-sm text-center  '>DATE CHANGE</Link>
                         </nav>
                         <div>
                             <div>
