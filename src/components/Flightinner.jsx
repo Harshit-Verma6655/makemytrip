@@ -62,16 +62,16 @@ function Flightinner() {
   return (
     <div className=" scroll-hide relative" onClick={() => { setdestCity(); setsrcCity(); }}>
       <div className="flex sm:justify-between  scroll-hide">
-        <div className="flex gap-7 sm:ml-2 scroll-hide  rounded-lg bg-gray-300 ">
-          <label htmlFor="One" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
+        <div className="flex gap-7 sm:ml-2 scroll-hide text-black  rounded-lg bg-gray-300 ">
+          <label htmlFor="One" className="hover:bg-blue-50 px-2 py-1 flex  cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="One" />
-            <span className="font-bold">One way</span>
+            <span className="font-bold text-center">One way</span>
           </label>
-          <label htmlFor="Round" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
+          <label htmlFor="Round" className="hover:bg-blue-50 flex px-2 py-1  cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="Round" />
             <span className="font-bold">Round Trip</span>
           </label>
-          <label htmlFor="Multi" className="hover:bg-blue-50 px-2 py-1  cursor-pointer">
+          <label htmlFor="Multi" className="hover:bg-blue-50 px-2 py-1 flex cursor-pointer">
             <input type="radio" className="mr-2" name="trip" id="Multi" />
             <span className="font-bold">Multi city</span>
           </label>
@@ -285,7 +285,7 @@ function Flightinner() {
           </div>
         </div>
       </div>
-      <div className="flex justify-between mb-4 overflow-scroll scroll-hide">
+      <div className="flex justify-between mb-4 overflow-scroll text-black scroll-hide">
         <div className="flex sm:items-center flex-col sm:flex-row overflow-scroll scroll-hide">
           <p className="text-[14px] mb-2  leading-none font-[600] text-gray-400 mr-1 ">
             Select A <br /> Fare type:
