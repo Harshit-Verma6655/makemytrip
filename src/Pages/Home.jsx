@@ -9,9 +9,12 @@ import qr from '../../assets/qr.png';
 import phn from '../../assets/dwnld.png';
 import CommonNavbar from '../components/CommonNavbar';
 import { useNavigate } from 'react-router-dom';
+import Signup from './Signup';
+import Login from './Login';
 function Home() {
     let navigate = useNavigate();
     let [visible, setvisible] = useState(false);
+    let [modal, setmodal] = useState();
     useEffect(() => {
         const handleScroll = () => {
             const position = 120;
@@ -21,7 +24,10 @@ function Home() {
         window.addEventListener('scroll', handleScroll)
     }, [])
 
-
+    function handleModal(str) {
+        // console.log("str", str);
+        setmodal(str);
+    }
     function handleFlight() {
         console.log("innerwidth", window.innerWidth);
         if (window.innerWidth < 640) {
@@ -31,6 +37,7 @@ function Home() {
 
     return (
         <div className='w-screen justify-center flex bg-black'>
+
             <div className="w-full bg-[rgb(242,242,242)] max-w-[1600px]  ">
                 <div
                     style={{
@@ -42,8 +49,10 @@ function Home() {
                     }}
 
                 >
-                    <Header />
-                    {visible && <div className='fixed top-0 z-50 hidden sm:block'><CommonNavbar /></div>}
+                    {modal == "sign" && <Signup handleModal={handleModal} />}
+                    {modal == "login" && <Login handleModal={handleModal} />}
+                    <Header handleModal={handleModal} />
+                    {visible && <div className='fixed top-0 z-30 hidden sm:block'><CommonNavbar handleModal={handleModal} /></div>}
                     <div className="relative mb-2 ">
                         <Nav handleFlight={handleFlight} />
                         <div className='hidden w-full sm:top-[55px] sm:block absolute'>

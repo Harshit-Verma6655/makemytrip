@@ -11,21 +11,12 @@ export const useFlightContext = () => {
 
 
 function FlightContextProvider({ children }) {
-
-
-
-
     const [flights, setflights] = useState();
-
-
     let [src, setSrc] = useState();
     let [dest, setDest] = useState();
     let [day, setday] = useState();
     // let navigate = useNavigate();
-
-
     const setDay = (date) => {
-
         console.log("date", date);
         setday(date);
     }
@@ -44,10 +35,6 @@ function FlightContextProvider({ children }) {
 
         if (src && dest) {
             let dateObj = new Date(day);
-
-
-
-
             flightsAvailable(dateObj.getDay(), src, dest, filter).then((data) => {
                 console.log("dat1", data);
 

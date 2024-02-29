@@ -2,7 +2,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-function Header() {
+import { useUserContext } from "../FlightContext/UserContext";
+
+function Header({ handleModal }) {
+  const { logged, userdetail } = useUserContext();
   return (
     <div
       className="w-full z-10 h-16 mb-6"
@@ -86,14 +89,19 @@ function Header() {
                 fontWeight: "500",
                 alignItems: "center",
               }}
-              className="p-2 rounded flex justify-between "
+              className="p-2 rounded flex justify-between cursor-pointer "
+
             >
-              <div className="flex gap-2">
+              <div className="flex gap-2"
+
+              >
                 <img
                   style={{ width: "20px", height: "20px", borderRadius: "50%" }}
                   src="../../assets/Screenshot 2024-01-29 171454.png"
                 />
-                <span>Login or Create Account</span>
+                {logged ? <span className="font-black text-base">{userdetail.name}</span> : <span
+                  onClick={() => handleModal("sign")}
+                >Login or Create Account</span>}
               </div>
               <div>
                 <svg
@@ -157,7 +165,7 @@ function Header() {
                 style={{ width: "20px", height: "20px", borderRadius: "50%" }}
                 src="../../assets/Screenshot 2024-01-29 171454.png"
               />
-              <span>Login or Create Account</span>
+              {logged ? <span >{userdetail.name}</span> : <span onClick={() => handleModal("sign")}>Login or Create Account</span>}
             </div>
             <div>
               <svg

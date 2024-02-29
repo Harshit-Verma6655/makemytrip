@@ -12,7 +12,11 @@ import forex from "../../assets/triplogos/forexcard-1.png";
 import travel from "../../assets/triplogos/travelinsu-1.png";
 import login from '../../assets/mylogo.png';
 import country from '../../assets/countryindia.png';
-function CommonNavbar() {
+import { useUserContext } from '../FlightContext/UserContext';
+function CommonNavbar({ handleModal }) {
+
+
+    const { logged, userdetail } = useUserContext();
     return (<div className='flex justify-center w-screen items-center'>
         <div className='sm:max-w-[1600px] w-full justify-center px-2 py-[10px] h-[80px] flex items-center bg-[#fff] '>
             <div><img width={"113px"} height={"36px"} src='	https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png' />
@@ -77,9 +81,12 @@ function CommonNavbar() {
                     </div>
                 </div>
             </div>
-            <div className='flex gap-2 mr-2'>
+            <div className='flex gap-2 mr-2 items-center'>
                 <img width={"30px"} src={login} />
-                <span className='text-xs font-bold'>Login or <br />Create Account</span>
+                {logged ? <span className='text-xs font-bold '>{userdetail.name}</span> : <span className='text-xs font-bold cursor-pointer'
+
+                    onClick={() => handleModal("sign")}
+                >Login or <br />Create Account</span>}
             </div>
             <div className='mr-3'>
                 <img width={"70px"} src={country} />
