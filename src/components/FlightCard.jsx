@@ -104,8 +104,8 @@ function FlightCard({ detail }) {
             {viewFlight && <>
                 <div className='bg-[#fafbfc]'>
                     <div className=' shadow-inner sm:py-[17px] py-4 flex flex-col items-center sm:px-[20px] px-2 max-w-screen '>
-                        <nav className='mb-[24px] flex justify-start w-fit shadow  '>
-                            <Link className='py-[7px] px-[14px] bg-[#fff] text-sm  '>FLIGHT DETAILS</Link>
+                        <nav className='mb-[24px] flex justify-start w-fit max-w-full shadow  '>
+                            <Link className='py-[7px] sm:px-[14px]  bg-[#fff] text-sm  '>FLIGHT DETAILS</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm'>FARE SUMMARY</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm '>CANCELLATION</Link>
                             <Link className='py-[7px] px-[14px] bg-[#fff] text-sm text-center  '>DATE CHANGE</Link>
