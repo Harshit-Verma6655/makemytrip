@@ -84,13 +84,13 @@ function Flightinner() {
         <div className="sm:h-fit border-gray-300 border rounded-lg flex flex-col sm:flex-row sm:gap-0 gap-2 ">
           <div className="sm:w-[300px] sm:h-[130px] h-full w-full    border-gray-300  sm:border-r relative">
             <div className="px-[25px] py-[10px] justify-ceter flex flex-col ">
-              <label className="mb-1 w-full text-gray-600">From</label>
+              <label className="mb-1 w-full ">From</label>
               <input
                 type="text"
                 onChange={handleCity}
                 value={srcInput?.city}
                 placeholder={`Delhi, (DEL)`}
-                className="text-[30px] w-full   font-bold border-none outline-0  "
+                className="text-[30px] w-full text-black  font-bold border-none outline-0  "
               />
               <p className="text-xs text-gray-500 text-left">{srcInput?.name}</p>
               {srcCity && (
@@ -157,7 +157,7 @@ function Flightinner() {
                 type="text"
                 onChange={handleReturnCity}
                 placeholder={`Mumbai, (MUM)`}
-                className="text-[30px] w-full   font-bold border-none outline-0"
+                className="text-[30px] w-full text-black  font-bold border-none outline-0"
                 value={destInput?.city}
               />
               <p className="text-xs text-gray-500 text-left">{destInput?.name}</p>
@@ -219,7 +219,7 @@ function Flightinner() {
               <input
                 id="departure"
                 type="date"
-                className="sm:mt-5 font-bold text-[16px] pl-[15px] h-[70px] sm:h-auto"
+                className="sm:mt-5 font-bold text-[16px] text-black pl-[15px] h-[70px] sm:h-auto"
                 onChange={handleDay}
               />
             </label>
