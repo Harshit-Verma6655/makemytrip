@@ -71,15 +71,44 @@ function Booking() {
                             <li>Wearing a mask/face cover is no longer mandatory. However, all travellers are advised to do so as a precautionary measure.</li>
                         </ul>
                     </div>
+                    <div className='p-8 w-full shadow mb-8'>
+                        <h1 className='font-bold my-3'>Traveller Details</h1>
+                        <div className='flex justify-between my-3'><p>
+                            ADULT (12 yrs+)</p>
+                            <p>1/1
+                                added</p>
+
+                        </div>
+                        <p className='text-sm my-4 '>Important: Enter name as mentioned on your passport or Government approved IDs.</p>
+                        <form className='shadow p-6'>
+                            <label className='w-full text-bold my-3 '>
+                                <input type='checkbox' /> Adult
+                            </label>
+                            <hr />
+                            <div className='flex gap-4 my-5'>
+                                <input type='text' required placeholder='First & Middle Name' className='border-2 p-2' />
+                                <input type='text' required placeholder='Last Name' className='border-2 p-2' />
+                                <div className='flex gap-4'><p className='border-2 p-2'>MALE</p><p className='border-2 p-2'>FEMALE</p></div>
+                            </div>
+                            <div className='flex gap-4 my-5'>
+                                <input type='text' required placeholder='Country Code' disabled className='border-2 p-2' />
+                                <input type='number' required placeholder='mobile number' className='border-2 p-2' />
+                                <input type='email' required placeholder=' Email' className='border-2 p-2' />
+                            </div>
+
+                        </form>
+                    </div>
+
+
                     <button className='gradient text-white px-8 text-xl py-2 font-bold rounded-full'><Link to={"https://rzp.io/l/Ul2UpNGaG0"}>Continue</Link></button>
                 </div>
-                <div className='p-6 z-10 h-fit bg-white sticky top-0 w-[285px]'>
+                <div className='p-6 z-10 h-fit bg-white sticky top-0  w-[285px]'>
 
                     <h1 className='font-black my-6'>Fare Summary</h1>
                     <p className='my-2 flex justify-between'><span className=' font-bold mr-6 list-disc'>Base Fare</span><span className='font-bold'>₹ {flight.ticketPrice}</span></p>
-                    <p className='my-4  flex justify-between list-disc'><span className=' font-bold mr-6'>Taxes and Surcharges</span><span className='font-bold'>₹ {flight.ticketPrice * (0.1)}</span></p>
+                    <p className='my-4  flex justify-between list-disc'><span className=' font-bold mr-6'>Taxes and Surcharges</span><span className='font-bold'>₹ {(flight.ticketPrice * (0.1)).toFixed(2)}</span></p>
                     <hr className='font-bold text-black' />
-                    <p className='my-4  flex justify-between'><span className=' font-black mr-6'>Total Ammount</span><span className='font-black'>₹ {flight.ticketPrice + flight.ticketPrice * (0.1)}</span></p>
+                    <p className='my-4  flex justify-between'><span className=' font-black mr-6'>Total Ammount</span><span className='font-black'>₹ {flight.ticketPrice + +(flight.ticketPrice * (0.1)).toFixed(2)}</span></p>
 
                 </div>
             </div>

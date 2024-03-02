@@ -75,7 +75,7 @@ function PopularFilterFlight() {
         <div className='sm:w-[295px] w-screen bg-[#041422] text-white sm:text-black  h-fit shadow-xl sm:bg-white'>
             <div className='px-[15px] py-[12px] flex flex-col'>
                 <p className='mb-[10px] text-[18px] font-bold'>Popular Filters</p>
-                <div className='sm:w-[265px] w-full sm:h-[173px] h-fit sm:mb-6 gap-2 flex items-center sm:flex-col'>
+                <div className='sm:w-[265px] w-full sm:h-[173px] h-fit sm:mb-6 gap-1 flex items-center sm:flex-col'>
                     <div className='sm:w-[265px] mb-[12px] h-[26px] flex items-center sm:justify-between'>
                         <label className='flex' >
                             <span><input type='checkbox' name='nonstop' className='w-[18px] h-[18px]'
@@ -84,7 +84,7 @@ function PopularFilterFlight() {
 
                                 }}
                             ></input></span>
-                            <div className='ml-[10px]'><p>Non Stop</p></div>
+                            <div className='sm:ml-[10px] '><p>Non Stop</p></div>
                         </label>
                         <span className='ml-[5px] hidden sm:block'>₹ 4,869</span>
                     </div>
@@ -93,7 +93,7 @@ function PopularFilterFlight() {
                             <span><input type='checkbox'
                                 onChange={(e) => setoneStop(e.target.checked)}
                                 className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px] text-center'><p>1 Stop</p></div>
+                            <div className='sm:ml-[10px] text-center'><p>1 Stop</p></div>
                         </label>
                         <span className='ml-[5px] hidden sm:block'>₹ 4,869</span>
                     </div>
@@ -115,7 +115,7 @@ function PopularFilterFlight() {
                     >
                         <label className='flex'>
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px]'><p>Duration</p></div>
+                            <div className='sm:ml-[10px]'><p>Duration</p></div>
                         </label>
                         <span className='ml-[5px] hidden sm:block'>   3hrs </span>
                     </div>
@@ -138,7 +138,7 @@ function PopularFilterFlight() {
                     >
                         <label className='flex'>
                             <span><input type='checkbox' className='w-[18px] h-[18px]'></input></span>
-                            <div className='ml-[10px] '><p> Morning</p></div>
+                            <div className='sm:ml-[10px] '><p> Morning</p></div>
                         </label>
                         <span className='ml-[5px] text-xs hidden sm:block '>6AM- 12PM</span>
                     </div>
