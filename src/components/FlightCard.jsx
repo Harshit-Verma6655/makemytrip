@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useFlightContext } from '../FlightContext/FlightContext';
 
 function FlightCard({ detail }) {
+    let { handleBookNow } = useFlightContext();
     let [visile, setvisible] = useState(true);
     let [viewFlight, setviewFlight] = useState(false);
     let [flightIndex, setflightIndex] = useState(parseInt(Math.random() * 6));
@@ -55,7 +57,7 @@ function FlightCard({ detail }) {
                                             </div>
                                             <div className=''>
                                                 <p className='mb-[2px]'>
-                                                    <span className='font-black text-lg  mr-1'>10:30</span>
+                                                    <span className='font-black text-lg  mr-1'>{detail?.arrivalTime}</span>
                                                     <span className='text-red-500 text-[10px] '>+1 day</span>
                                                 </p>
                                                 <p className='text-[#000000] text-xs font-semibold'>
@@ -77,7 +79,10 @@ function FlightCard({ detail }) {
                                 <p className='text-xs'>per Adult</p>
                             </div>
                         </div>
-                        <button className='border  border-[#008cff] text-[008cff] bg-[#daebff] text-sm text-bold h-[31px] rounded-[96px] px-[8px]'><span className='text-[#008cff]'>BOOK NOW</span></button>
+                        <button className='border  border-[#008cff] text-[008cff] bg-[#daebff] text-sm text-bold h-[31px] rounded-[96px] px-[8px]'
+                            onClick={() => handleBookNow(detail)}
+
+                        ><span className='text-[#008cff]'>BOOK NOW</span></button>
                     </div>
 
                 </div>

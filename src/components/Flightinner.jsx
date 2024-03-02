@@ -8,12 +8,12 @@ import { useFlightContext } from "../FlightContext/FlightContext";
 function Flightinner() {
   let [srcCity, setsrcCity] = useState(null);
   let [destCity, setdestCity] = useState(null);
-  let { src, setsrc } = useFlightContext();
-  let { dest, setdest } = useFlightContext();
-  let { day, setDay } = useFlightContext();
+
+  let { dest, setdest, destCityName, srcCityName, src, setsrc, day, setDay, SearchFlights } = useFlightContext();
+
   let [srcInput, setsrcInput] = useState();
   let [destInput, setdestInput] = useState();
-  const { SearchFlights } = useFlightContext();
+
   const navigate = useNavigate();
   let handleCity = (e) => {
     setsrcInput(e.target.value);
@@ -103,6 +103,7 @@ function Flightinner() {
                         onClick={() => {
                           setsrc(airport);
                           setsrcInput(airport);
+                          srcCityName(airport);
                         }}
                       >
                         <div className="flex gap-1">
@@ -171,6 +172,7 @@ function Flightinner() {
                         onClick={() => {
                           setdest(airport);
                           setdestInput(airport);
+                          destCityName(airport);
                         }}
                       >
                         <div className="flex gap-1">

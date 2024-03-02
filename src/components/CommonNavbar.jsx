@@ -17,8 +17,8 @@ function CommonNavbar({ handleModal }) {
 
 
     const { logged, userdetail } = useUserContext();
-    return (<div className='flex justify-center w-screen items-center'>
-        <div className='sm:max-w-[1600px] w-full justify-center px-2 py-[10px] h-[80px] flex items-center bg-[#fff] '>
+    return (<div className='flex justify-center w-screen sm:w-screen items-center'>
+        <div className='sm:max-w-[1600px] w-full justify-center  py-[10px] h-[80px] flex items-center bg-[#fff] '>
             <div><img width={"113px"} height={"36px"} src='	https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png' />
             </div>
             <div className='mr-[135px]'>

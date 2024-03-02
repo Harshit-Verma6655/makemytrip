@@ -13,9 +13,11 @@ export const useFlightContext = () => {
 function FlightContextProvider({ children }) {
     const [flights, setflights] = useState();
     let [src, setSrc] = useState();
+    let [srcName, setSrcName] = useState();
     let [dest, setDest] = useState();
+    let [destName, setDestName] = useState();
     let [day, setday] = useState();
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
     const setDay = (date) => {
         console.log("date", date);
         setday(date);
@@ -24,6 +26,17 @@ function FlightContextProvider({ children }) {
         console.log("airport", airport);
         setSrc(airport)
     }
+    const srcCityName = (name) => {
+        setSrcName(name);
+        return name;
+    }
+
+    const destCityName = (name) => {
+        setDestName(name);
+        console.log("airportname", name);
+        return name;
+    }
+
     const setdest = (airport) => {
         setDest(airport);
     }
@@ -45,10 +58,24 @@ function FlightContextProvider({ children }) {
         }
 
     };
+
+
+    const handleBookNow = (detail) => {
+        detail.day = day;
+        detail.srcName = srcName;
+        detail.destName = destName;
+        localStorage.setItem('flight', JSON.stringify(detail));
+        navigate("/FlightDetail");
+    }
+    const getFlight = () => {
+        let flight = JSON.parse(localStorage.getItem('flight'));
+        return flight;
+    }
     return (
         <FlightContext.Provider value={{
             flights, setflights,
-            day, setDay, src, setsrc, dest, setdest, SearchFlights
+            day, setDay, src, setsrc, dest, setdest, SearchFlights,
+            handleBookNow, getFlight, destCityName, srcCityName
         }}>
             {children}
         </FlightContext.Provider>
