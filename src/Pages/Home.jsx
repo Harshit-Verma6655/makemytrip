@@ -15,12 +15,13 @@ import { useUserContext } from '../FlightContext/UserContext';
 function Home() {
     let navigate = useNavigate();
     let [visible, setvisible] = useState(false);
-    let { handleModal } = useUserContext();
+    let { handleModal, user } = useUserContext();
     useEffect(() => {
         const handleScroll = () => {
             const position = 120;
             setvisible(window.scrollY >= position);
         }
+        user();
 
         window.addEventListener('scroll', handleScroll)
     }, [])

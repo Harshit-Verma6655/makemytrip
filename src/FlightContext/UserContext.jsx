@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState, } from "react";
+import { json } from "react-router-dom";
 
 const userContext = createContext();
 
@@ -19,7 +20,11 @@ function UserContextProvider({ children }) {
         setmodal(str);
     }
     function user() {
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = localStorage.getItem('user');
+        if (user)
+            user = JSON.parse(user);
+        // console.log("user", user);
+
         if (user?.token) {
             setLogged(true);
             setuserdetail(user);
@@ -29,10 +34,7 @@ function UserContextProvider({ children }) {
 
 
     }
-    useEffect(() => {
 
-        user();
-    }, []);
     function setUser(userData) {
         let user = {};
         user = { ...userData };
@@ -49,7 +51,7 @@ function UserContextProvider({ children }) {
 
     return <>
         <userContext.Provider
-            value={{ logged, setUser, removeUser, userdetail, handleModal, modal }}
+            value={{ logged, setUser, removeUser, userdetail, handleModal, modal, user }}
         >
 
 

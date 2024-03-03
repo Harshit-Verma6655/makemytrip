@@ -5,6 +5,7 @@ function Offers() {
     const [offers, setOffers] = useState();
     const [filter, setfilter] = useState();
     const [active, setactive] = useState("ALL");
+
     useEffect(() => {
         OfferAPI(filter).then((data) => {
             console.log("offers", data.data.offers);
