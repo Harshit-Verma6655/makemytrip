@@ -12,6 +12,12 @@ export function useUserContext() {
 function UserContextProvider({ children }) {
     const [logged, setLogged] = useState(false);
     const [userdetail, setuserdetail] = useState();
+
+    let [modal, setmodal] = useState();
+    function handleModal(str) {
+        // console.log("str", str);
+        setmodal(str);
+    }
     function user() {
         let user = JSON.parse(localStorage.getItem('user'));
         if (user?.token) {
@@ -43,7 +49,7 @@ function UserContextProvider({ children }) {
 
     return <>
         <userContext.Provider
-            value={{ logged, setUser, removeUser, userdetail }}
+            value={{ logged, setUser, removeUser, userdetail, handleModal, modal }}
         >
 
 

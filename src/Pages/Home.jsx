@@ -11,10 +11,11 @@ import CommonNavbar from '../components/CommonNavbar';
 import { useNavigate } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
+import { useUserContext } from '../FlightContext/UserContext';
 function Home() {
     let navigate = useNavigate();
     let [visible, setvisible] = useState(false);
-    let [modal, setmodal] = useState();
+    let { handleModal } = useUserContext();
     useEffect(() => {
         const handleScroll = () => {
             const position = 120;
@@ -24,10 +25,7 @@ function Home() {
         window.addEventListener('scroll', handleScroll)
     }, [])
 
-    function handleModal(str) {
-        // console.log("str", str);
-        setmodal(str);
-    }
+
     function handleFlight() {
         console.log("innerwidth", window.innerWidth);
         if (window.innerWidth < 640) {
@@ -49,8 +47,7 @@ function Home() {
                     }}
 
                 >
-                    {modal == "sign" && <Signup handleModal={handleModal} />}
-                    {modal == "login" && <Login handleModal={handleModal} />}
+
                     <Header handleModal={handleModal} />
                     {visible && <div className='fixed top-0 z-30 hidden sm:block'><CommonNavbar handleModal={handleModal} /></div>}
                     <div className="relative mb-2 ">

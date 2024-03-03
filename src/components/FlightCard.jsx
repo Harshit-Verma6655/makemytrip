@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useFlightContext } from '../FlightContext/FlightContext';
+import { useUserContext } from '../FlightContext/UserContext';
 
 function FlightCard({ detail }) {
     let { handleBookNow } = useFlightContext();
+    let { logged, handleModal } = useUserContext();
     let [visile, setvisible] = useState(true);
     let [viewFlight, setviewFlight] = useState(false);
     let [flightIndex, setflightIndex] = useState(parseInt(Math.random() * 6));
@@ -80,7 +82,13 @@ function FlightCard({ detail }) {
                             </div>
                         </div>
                         <button className='border  border-[#008cff] text-[008cff] bg-[#daebff] text-sm text-bold h-[31px] rounded-[96px] px-[8px]'
-                            onClick={() => handleBookNow(detail)}
+                            onClick={() => {
+                                if (logged)
+                                    handleBookNow(detail);
+                                else {
+                                    handleModal("sign");
+                                }
+                            }}
 
                         ><span className='text-[#008cff]'>BOOK NOW</span></button>
                     </div>
@@ -133,8 +141,8 @@ function FlightCard({ detail }) {
                                                     </span>
                                                     <p className='text-xs rounded-lg font-bold px-1 flex justify-center items-center' style={{ color: "rgb(117, 117, 117)", border: "1px solid rgb(117, 117, 117)" }}>Airbus A320</p>
                                                 </p>
-                                                <div className='flex justify-around items-center'>
-                                                    <div>
+                                                <div className='flex justify-around flex-col sm:flex-row items-center'>
+                                                    <div className='mt-4'>
                                                         <div>
                                                             <label>
                                                                 <div className='py-[5px] px-[10px]'>
@@ -178,10 +186,11 @@ function FlightCard({ detail }) {
                                                         </div>
                                                     </div>
                                                     <div className='sm:mx-[50px]'>
-                                                        <p className='mb-2 flex font-bold text-xs'>
-                                                            <span className='pr-3'>BAGGAGE :</span>
+                                                        <p className='my-4 flex font-bold text-xs'>
+                                                            <span className='pr-3'>BAGGAGE</span>
                                                             <span className='pr-3'>CHECK IN </span>
-                                                            <span className='pr-3'>CABIN </span>
+                                                            <span className='pr-3'>Aircraft Model: {detail?.aircraftModel}</span>
+                                                            <span className='pr-3'>Seats: {detail?.availableSeats} </span>
                                                         </p>
                                                         <p></p>
                                                     </div>

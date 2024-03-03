@@ -1,11 +1,12 @@
 /* eslint-disable react/no-unknown-property */
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useUserContext } from "../FlightContext/UserContext";
 
-function Header({ handleModal }) {
-  const { logged, userdetail } = useUserContext();
+function Header() {
+  const { logged, userdetail, handleModal } = useUserContext();
+  const [visible, setvisible] = useState(false);
   return (
     <div
       className="w-full z-10 h-16 mb-6"
@@ -99,11 +100,20 @@ function Header({ handleModal }) {
                   style={{ width: "20px", height: "20px", borderRadius: "50%" }}
                   src="../../assets/Screenshot 2024-01-29 171454.png"
                 />
-                {logged ? <span className="font-black text-base">{userdetail.name}</span> : <span
+                {logged ? <span className="font-black  text-base "
+                  onClick={() => setvisible(!visible)}
+                >{userdetail.name}
+
+                </span> : <span
                   onClick={() => handleModal("sign")}
                 >Login or Create Account</span>}
               </div>
-              <div>
+              <div
+                className="relative"
+
+
+              >
+
                 <svg
                   class="w-[15px] h-[15px] text-white"
                   aria-hidden="true"
@@ -119,6 +129,10 @@ function Header({ handleModal }) {
                     d="m19 9-7 7-7-7"
                   />
                 </svg>
+
+                {visible && <div className="absolute p-2 z-50 top-8 right-0 bg-black text-white   h-[100px]   w-[130px]">
+                  Log out
+                </div>}
               </div>
             </div>
             <div

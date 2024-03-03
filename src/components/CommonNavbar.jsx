@@ -13,8 +13,9 @@ import travel from "../../assets/triplogos/travelinsu-1.png";
 import login from '../../assets/mylogo.png';
 import country from '../../assets/countryindia.png';
 import { useUserContext } from '../FlightContext/UserContext';
-function CommonNavbar({ handleModal }) {
 
+function CommonNavbar() {
+    let { handleModal } = useUserContext();
 
     const { logged, userdetail } = useUserContext();
     return (<div className='flex justify-center w-screen sm:w-screen items-center'>

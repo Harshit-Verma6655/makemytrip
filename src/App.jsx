@@ -9,12 +9,17 @@ import FlightHeader from "./components/FlightHeader";
 import SearchFlight from "./Pages/SearchFlight";
 import Signup from "./Pages/Signup";
 import Booking from "./Pages/Booking";
+import Login from "./Pages/Login";
+import { useUserContext } from "./FlightContext/UserContext";
 
 function App() {
   // const [count, setCount] = useState(0);
+  let { modal, handleModal } = useUserContext();
 
   return (
     <>
+      {modal == "sign" && <Signup handleModal={handleModal} />}
+      {modal == "login" && <Login handleModal={handleModal} />}
       <Routes>
 
         <Route path="/" element={<Home />} />

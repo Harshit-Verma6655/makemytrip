@@ -1,33 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CommonNavbar from '../components/CommonNavbar'
 import { useFlightContext } from '../FlightContext/FlightContext'
 import { Link } from 'react-router-dom';
 
 function Booking() {
     let { getFlight, } = useFlightContext();
-    let flight = getFlight();
+    let [flight, setflight] = useState();
+    let [gender, setgender] = useState();
+    useEffect(() => {
+        let flightobj = getFlight();
+        setflight(flightobj);
+    }, [])
+
     console.log("Booked", flight);
     return (
         <div className='max-w-[1280px] w-screen  box-border'>
-            <CommonNavbar />
+            <div className='hidden sm:block'>
+
+                <CommonNavbar />
+            </div>
+
             <div className='bg-[#041422] z-20 py-4 flex justify-between px-4 sticky top-0 text-white'>
-                <h1>  Complete your Booking </h1>
-                <ul className='flex gap-4 text-xs'>
-                    <li>Flight Summary</li>
-                    <li>Flight Summary</li>
-                    <li>Flight Summary</li>
-                    <li>Flight Summary</li>
-                    <li>Flight Summary</li>
+                <h1 className='text-2xl font-bold'>  Complete your Booking </h1>
+                <ul className='sm:flex gap-4 text-[10px] hidden '>
+                    <li className='cursor-pointer' onClick={() => {
+                        window.scrollTo({ top: 120, behavior: 'smooth' });
+
+                    }}>Flight Summary</li>
+                    <li className='cursor-pointer' onClick={() => {
+                        window.scrollTo({ top: 1000, behavior: 'smooth' });
+
+                    }}>Traveller Details</li>
+                    <li>Seats & Meals</li>
+                    <li>Add-ons</li>
+
                 </ul>
             </div>
-            <div className='relative bg-blue-200 pb-16 w-full  pt-4  gap-2 overflow-y-scroll flex scroll-hide'>
+            <div className='relative bg-blue-200 pb-16 w-full px-2   pt-4 items-center sm:items-start  gap-2 overflow-y-scroll flex scroll-hide flex-col sm:flex-row'>
                 <div className='h-[180px]     absolute w-screen top-0 ' style={{ backgroundImage: "linear-gradient(0deg,#15457b,#051423)" }}></div>
                 <div className='p-4 mx-2 bg-white z-10 sm:w-[880px] max-w-[880px]'>
                     <div className='bg-white p-4 z-10 shadow'>
                         <div className='mt-6 flex justify-between' >
                             <div>
-                                <h1 className='text-lg my-4 font-black'>{flight.srcName.city} to {flight.destName.city}</h1>
-                                <p className='text-sm'><span className='bg-[rgb(255,237,209)]'>{new Date(flight.day).toDateString()}</span > stops {flight.stops}  </p>
+                                <h1 className='text-lg my-4 font-black'>{flight?.srcName?.city} to {flight?.destName?.city}</h1>
+                                <p className='text-sm'><span className='bg-[rgb(255,237,209)]'>{new Date(flight?.day).toDateString()}</span > stops {flight?.stops}  </p>
                             </div>
                             <div className='text-sm my-4 '>
                                 <p className='my-4'>Non Refundable</p>
@@ -43,19 +59,19 @@ function Booking() {
                         </div>
                         <div className='bg-gray-300 text-sm my-4  p-6'>
                             <p className='text-sm mt-4 flex items-center gap-4'>02:20
-                                <div className='h-4 rounded-full border-4  w-4'></div><span className='text-bold'>{flight.srcName.city}</span> {flight.srcName.name}</p>
-                            <p className='text-bold border-l border-dashed text-xl py-3 border-black ml-[59px] pl-4'>{flight.duration}h:00m</p>
+                                <div className='h-4 rounded-full border-4  w-4'></div><span className='text-bold'>{flight?.srcName?.city}</span> {flight?.srcName?.name}</p>
+                            <p className='text-bold border-l border-dashed text-xl py-3 border-black ml-[59px] pl-4'>{flight?.duration}h:00m</p>
                             <p className='text-sm mb-4 flex gap-4 items-center'>02:20
-                                <div className='h-4 rounded-full border-4  w-4'></div><span className='text-bold'>{flight.destName.city}</span> {flight.destName.name}</p>
+                                <div className='h-4 rounded-full border-4  w-4'></div><span className='text-bold'>{flight?.destName?.city}</span> {flight?.destName?.name}</p>
                             <hr />
                             <p className='flex justify-start flex-col gap-6 font-bold text-sm mt-4'>
 
-                                <span> Cabin Baggage:7 Kgs (1 piece only) / Adult</span>
-                                <span className='mr-36'> Check-In Baggage:15 Kgs (1 piece only) / Adult</span>
+                                <span className='text-xs sm:text-base'> Cabin Baggage:7 Kgs (1 piece only) / Adult</span>
+                                <span className='sm:mr-36 text-xs sm:text-base'> Check-In Baggage:15 Kgs (1 piece only) / Adult</span>
                             </p>
 
                         </div>
-                        <p className='flex bg-blue-100 gap-20 text-xs'>
+                        <p className='flex bg-blue-100 gap-20 text-xs p-4'>
                             <span>
                                 Got excess baggage? Don’t stress, buy extra check-in baggage allowance for BOM-BLR at fab rates!</span>
                             <span>+ADD</span>
@@ -80,35 +96,39 @@ function Booking() {
 
                         </div>
                         <p className='text-sm my-4 '>Important: Enter name as mentioned on your passport or Government approved IDs.</p>
-                        <form className='shadow p-6'>
+                        <form className='shadow p-6' action='https://rzp.io/l/Ul2UpNGaG0'>
                             <label className='w-full text-bold my-3 '>
                                 <input type='checkbox' /> Adult
                             </label>
                             <hr />
-                            <div className='flex gap-4 my-5'>
+                            <div className='flex gap-4 my-5 flex-col sm:flex-rows'>
                                 <input type='text' required placeholder='First & Middle Name' className='border-2 p-2' />
                                 <input type='text' required placeholder='Last Name' className='border-2 p-2' />
-                                <div className='flex gap-4'><p className='border-2 p-2'>MALE</p><p className='border-2 p-2'>FEMALE</p></div>
+                                <div className='flex gap-4'><p className={`border-2 p-2 ${gender == "male" && "bg-blue-300"}`}
+                                    onClick={() => setgender("male")}
+                                >MALE</p><p className={`border-2 p-2 ${gender == "female" && "bg-blue-300"}`}
+                                    onClick={() => setgender("female")}
+                                >FEMALE</p></div>
                             </div>
-                            <div className='flex gap-4 my-5'>
-                                <input type='text' required placeholder='Country Code' disabled className='border-2 p-2' />
+                            <div className='flex gap-4 my-5 flex-col sm:flex-rows'>
+                                <input type='text' required placeholder='Country Code' value={"+91"} disabled className='border-2 p-2' />
                                 <input type='number' required placeholder='mobile number' className='border-2 p-2' />
                                 <input type='email' required placeholder=' Email' className='border-2 p-2' />
                             </div>
-
+                            <button className='gradient text-white px-8 text-xl py-2 font-bold rounded-full'>Continue</button>
                         </form>
                     </div>
 
 
-                    <button className='gradient text-white px-8 text-xl py-2 font-bold rounded-full'><Link to={"https://rzp.io/l/Ul2UpNGaG0"}>Continue</Link></button>
+
                 </div>
-                <div className='p-6 z-10 h-fit bg-white sticky top-0  w-[285px]'>
+                <div className='p-6 z-10 h-fit bg-white w-full  box-border   sm:w-[285px]'>
 
                     <h1 className='font-black my-6'>Fare Summary</h1>
-                    <p className='my-2 flex justify-between'><span className=' font-bold mr-6 list-disc'>Base Fare</span><span className='font-bold'>₹ {flight.ticketPrice}</span></p>
-                    <p className='my-4  flex justify-between list-disc'><span className=' font-bold mr-6'>Taxes and Surcharges</span><span className='font-bold'>₹ {(flight.ticketPrice * (0.1)).toFixed(2)}</span></p>
+                    <p className='my-2 flex justify-between'><span className=' font-bold mr-6 list-disc'>Base Fare</span><span className='font-bold'>₹ {flight?.ticketPrice}</span></p>
+                    <p className='my-4  flex justify-between list-disc'><span className=' font-bold mr-6'>Taxes and Surcharges</span><span className='font-bold'>₹ {(flight?.ticketPrice * (0.1)).toFixed(2)}</span></p>
                     <hr className='font-bold text-black' />
-                    <p className='my-4  flex justify-between'><span className=' font-black mr-6'>Total Ammount</span><span className='font-black'>₹ {flight.ticketPrice + +(flight.ticketPrice * (0.1)).toFixed(2)}</span></p>
+                    <p className='my-4  flex justify-between'><span className=' font-black mr-6'>Total Ammount</span><span className='font-black'>₹ {flight?.ticketPrice + +(flight?.ticketPrice * (0.1)).toFixed(2)}</span></p>
 
                 </div>
             </div>
