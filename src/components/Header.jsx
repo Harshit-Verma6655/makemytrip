@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useUserContext } from "../FlightContext/UserContext";
+import Logout from "./Logout";
 
 function Header() {
   const { logged, userdetail, handleModal } = useUserContext();
@@ -91,7 +92,7 @@ function Header() {
                 alignItems: "center",
               }}
               className="p-2 rounded flex justify-between cursor-pointer "
-
+              onClick={() => setvisible(!visible)}
             >
               <div className="flex gap-2"
 
@@ -100,13 +101,15 @@ function Header() {
                   style={{ width: "20px", height: "20px", borderRadius: "50%" }}
                   src="../../assets/Screenshot 2024-01-29 171454.png"
                 />
-                {logged ? <span className="font-black  text-base "
-                  onClick={() => setvisible(!visible)}
-                >{userdetail.name}
+                {logged ? <span className="font-black  text-base relative "
 
-                </span> : <span
-                  onClick={() => handleModal("sign")}
-                >Login or Create Account</span>}
+                >{userdetail.name}
+                  {visible && <Logout />}
+                </span>
+
+                  : <span
+                    onClick={() => handleModal("sign")}
+                  >Login or Create Account</span>}
               </div>
               <div
                 className="relative"
@@ -130,9 +133,7 @@ function Header() {
                   />
                 </svg>
 
-                {visible && <div className="absolute p-2 z-50 top-8 right-0 bg-black text-white   h-[100px]   w-[130px]">
-                  Log out
-                </div>}
+
               </div>
             </div>
             <div
@@ -173,13 +174,22 @@ function Header() {
               alignItems: "center",
             }}
             className="p-2 rounded flex sm:hidden "
+            onClick={() => setvisible(!visible)}
           >
             <div className="flex gap-2 sm:hidden ">
               <img
                 style={{ width: "20px", height: "20px", borderRadius: "50%" }}
                 src="../../assets/Screenshot 2024-01-29 171454.png"
               />
-              {logged ? <span >{userdetail.name}</span> : <span onClick={() => handleModal("sign")}>Login or Create Account</span>}
+              {logged ? <span className="font-black  text-base relative "
+
+              >{userdetail.name}
+                {visible && <Logout />}
+              </span>
+
+                : <span
+                  onClick={() => handleModal("sign")}
+                >Login or Create Account</span>}
             </div>
             <div>
               <svg
