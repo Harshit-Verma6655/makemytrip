@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useUserContext } from "../FlightContext/UserContext";
 import Logout from "./Logout";
-
+import my from "../../assets/Screenshot 2024-01-29 171454.png";
+import mytrip from "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png";
+import bizz from "https://imgak.mmtcdn.com/mybiz/assets/images/mybizlogo.png";
+import trips from "../../assets/Screenshot 2024-01-29 165902.png";
 function Header() {
   const { logged, userdetail, handleModal } = useUserContext();
   const [visible, setvisible] = useState(false);
@@ -22,7 +25,7 @@ function Header() {
             <HiOutlineMenuAlt2 className="text-white text-3xl sm:hidden visible font-bold" />
             <img
               style={{ width: "113px", height: "36px" }}
-              src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
+              src={mytrip}
             />
           </Link>
           <div className="sm:flex hidden ">
@@ -55,7 +58,7 @@ function Header() {
             <div className="flex gap-2 p-2">
               <img
                 className="h-6"
-                src="https://imgak.mmtcdn.com/mybiz/assets/images/mybizlogo.png"
+                src={bizz}
               />
               <div className="flex flex-col">
                 <span className="text-xs font-black text-white ">
@@ -70,7 +73,7 @@ function Header() {
             <div className="flex gap-2 p-2">
               <img
                 className="h-6"
-                src="../../assets/Screenshot 2024-01-29 165902.png"
+                src={trips}
               />
               <div className="flex flex-col">
                 <span className="text-xs font-black text-white ">My Trips</span>
@@ -99,7 +102,7 @@ function Header() {
               >
                 <img
                   style={{ width: "20px", height: "20px", borderRadius: "50%" }}
-                  src="../../assets/Screenshot 2024-01-29 171454.png"
+                  src={my}
                 />
                 {logged ? <span className="font-black  text-base relative "
 
@@ -179,7 +182,7 @@ function Header() {
             <div className="flex gap-2 sm:hidden ">
               <img
                 style={{ width: "20px", height: "20px", borderRadius: "50%" }}
-                src="../../assets/Screenshot 2024-01-29 171454.png"
+                src={my}
               />
               {logged ? <span className="font-black  text-base relative "
 

@@ -108,7 +108,7 @@ function Flightinner() {
                       >
                         <div className="flex gap-1">
                           <div>
-                            <img src="../../assets/plane-small.png" width={25} style={{ minHeight: "20px" }} /></div>
+                            <img src={planeLogo} width={25} style={{ minHeight: "20px" }} /></div>
                           <span className="flex flex-col">
                             <span className="text-sm text-gray-800">
                               {airport.city}, {airport.country}
