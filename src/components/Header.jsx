@@ -5,8 +5,8 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { useUserContext } from "../FlightContext/UserContext";
 import Logout from "./Logout";
 import my from "../../assets/Screenshot 2024-01-29 171454.png";
-import mytrip from "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png";
-import bizz from "https://imgak.mmtcdn.com/mybiz/assets/images/mybizlogo.png";
+// import mytrip from "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png";
+// import bizz from "https://imgak.mmtcdn.com/mybiz/assets/images/mybizlogo.png";
 import trips from "../../assets/Screenshot 2024-01-29 165902.png";
 function Header() {
   const { logged, userdetail, handleModal } = useUserContext();
@@ -25,7 +25,7 @@ function Header() {
             <HiOutlineMenuAlt2 className="text-white text-3xl sm:hidden visible font-bold" />
             <img
               style={{ width: "113px", height: "36px" }}
-              src={mytrip}
+              src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
             />
           </Link>
           <div className="sm:flex hidden ">
@@ -58,7 +58,7 @@ function Header() {
             <div className="flex gap-2 p-2">
               <img
                 className="h-6"
-                src={bizz}
+                src="https://imgak.mmtcdn.com/mybiz/assets/images/mybizlogo.png"
               />
               <div className="flex flex-col">
                 <span className="text-xs font-black text-white ">
