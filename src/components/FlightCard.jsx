@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useFlightContext } from '../FlightContext/FlightContext';
 import { useUserContext } from '../FlightContext/UserContext';
-
+import non from '../../assets/0.png';
+import one from '../../assets/1.png';
+import two from '../../assets/2.png';
 function FlightCard({ detail }) {
     let { handleBookNow } = useFlightContext();
     let { logged, handleModal } = useUserContext();
@@ -51,7 +53,7 @@ function FlightCard({ detail }) {
                                                 <div className='flex flex-col justify-center items-center'>
                                                     <div>
                                                         <p className='sm:mx-[35px] my-[6px]'>
-                                                            <img src={`../../assets/${detail?.stops}.png`} />
+                                                            <img src={detail?.stops == 0 ? non : detail?.stops == 1 ? one : two} />
                                                         </p>
                                                     </div>
                                                     <p className='text-[10px] text-[#6d7278] font-semibold'>{detail?.stops} stop via Ahmedabad</p>
