@@ -12,6 +12,7 @@ import forex from "../../assets/triplogos/forexcard-1.png";
 import travel from "../../assets/triplogos/travelinsu-1.png";
 import login from '../../assets/mylogo.png';
 import country from '../../assets/countryindia.png';
+import hotel from "../../assets/triplogos/hotel-1.png";
 import { useUserContext } from '../FlightContext/UserContext';
 
 function CommonNavbar() {
@@ -32,7 +33,7 @@ function CommonNavbar() {
                             </Link>
                         </div>
                         <div>
-                            <img width={"25px"} height={"20px"} src="../../assets/triplogos/hotel-1.png" />
+                            <img width={"25px"} height={"20px"} src={hotel} />
                             <span className="mt-2 inline-block text-[#4a4a4a] text-[12px]">
                                 Hotels
                             </span>
