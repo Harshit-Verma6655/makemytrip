@@ -16,9 +16,7 @@ async function LoginAPI(userData) {
         })
     });
     let result = await res.json();
-    // userData.token = result.token;
-    // setUser(userData);
-    // console.log("signup", result);
+
     return result;
 
 }

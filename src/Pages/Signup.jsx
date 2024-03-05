@@ -66,6 +66,10 @@ function Signup({ handleModal }) {
 
                             onClick={() => handleModal("login")}
                         >Log in</span></h1>
+                        <h1> <span className='text-blue-700 cursor-pointer'
+
+                            onClick={() => handleModal("login")}
+                        >Guest Log in</span></h1>
                     </form>
                 </div>
             </div>

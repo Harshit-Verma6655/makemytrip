@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import { flightsAvailable } from '../APIs/flightSearch';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import Book from '../APIs/Book';
 const FlightContext = createContext();
 export const useFlightContext = () => {
     return useContext(FlightContext);
@@ -65,6 +65,7 @@ function FlightContextProvider({ children }) {
         detail.srcName = srcName;
         detail.destName = destName;
         localStorage.setItem('flight', JSON.stringify(detail));
+        Book();
         navigate("/FlightDetail");
     }
     const getFlight = () => {
